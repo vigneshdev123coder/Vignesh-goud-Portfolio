@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MyPortfolio/static/css/main.e6c13ad2.css",
-    "main.js": "/MyPortfolio/static/js/main.cfa96748.js",
-    "static/js/453.d7446e4a.chunk.js": "/MyPortfolio/static/js/453.d7446e4a.chunk.js",
-    "static/media/myphoto.jpg": "/MyPortfolio/static/media/myphoto.56f09eca2a35d9fb621c.jpg",
-    "index.html": "/MyPortfolio/index.html",
-    "main.e6c13ad2.css.map": "/MyPortfolio/static/css/main.e6c13ad2.css.map",
-    "main.cfa96748.js.map": "/MyPortfolio/static/js/main.cfa96748.js.map",
-    "453.d7446e4a.chunk.js.map": "/MyPortfolio/static/js/453.d7446e4a.chunk.js.map"
+    "main.css": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/css/main.e6c13ad2.css",
+    "main.js": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/js/main.4d07df0d.js",
+    "static/js/453.d7446e4a.chunk.js": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/js/453.d7446e4a.chunk.js",
+    "static/media/myphoto.jpg": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/media/myphoto.56f09eca2a35d9fb621c.jpg",
+    "index.html": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/index.html",
+    "main.e6c13ad2.css.map": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/css/main.e6c13ad2.css.map",
+    "main.4d07df0d.js.map": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/js/main.4d07df0d.js.map",
+    "453.d7446e4a.chunk.js.map": "/vigneshdev123coder/Vignesh-goud-Portfolio.git/static/js/453.d7446e4a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.cfa96748.js"
+    "static/js/main.4d07df0d.js"
   ]
 }
