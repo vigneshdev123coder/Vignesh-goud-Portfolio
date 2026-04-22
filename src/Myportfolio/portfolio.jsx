@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import Photo from "../assets/myphoto.jpg";
-
+import weather from "../assets/weather.jpeg";
+import canara_bank from "../assets/canara bank.jpeg";
 
 const RESUME_URL = "https://drive.google.com/file/d/1WXo_Q_cqn7ABOcb9A3qxbA1-qnPPPS0I/view";
-
 
 const DATA = {
   personal: {
@@ -45,6 +45,7 @@ const DATA = {
     {
       id: 1,
       color: "#00d4ff",
+      image: null, // Add your document system image here when available
       title: "Full Stack Document Upload & Tracking System",
       stack: ["React", "Node.js", "MySQL"],
       desc: "A client-facing document submission system for business service workflows with multi-document upload, status tracking, and admin verification.",
@@ -59,6 +60,7 @@ const DATA = {
     {
       id: 2,
       color: "#7c3aed",
+      image: canara_bank,
       title: "Banking Application",
       stack: ["React", "React Router", "React Hooks"],
       desc: "A simulated banking platform with authentication, transactions, and account management using React Hooks and Router for seamless navigation.",
@@ -73,6 +75,7 @@ const DATA = {
     {
       id: 3,
       color: "#f59e0b",
+      image: weather,
       title: "Weather Application",
       stack: ["JavaScript", "HTML5", "CSS3", "OpenWeather API"],
       desc: "Real-time weather application with city-based search, dynamic data rendering, and a fully responsive UI.",
@@ -155,6 +158,7 @@ function T(dark) {
     navBg: dark ? "rgba(5,8,16,0.92)" : "rgba(245,247,255,0.92)",
     acc:   "#00d4ff",
     acc2:  "#7c3aed",
+    dark,
   };
 }
 
@@ -350,7 +354,6 @@ function Navbar({ dark, toggleTheme, scrollTo }) {
             {l}
           </button>
         ))}
-        {/* ✅ RESUME BUTTON - now links to Google Drive */}
         <a href={RESUME_URL} target="_blank" rel="noreferrer"
           style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.84rem", fontWeight: 600,
             color: t.acc, border: "1px solid " + t.acc, padding: "0.36rem 0.9rem",
@@ -454,7 +457,6 @@ function Hero({ dark, scrollTo }) {
             onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; }}>
             {"Let's Connect"}
           </button>
-          {/* ✅ HERO RESUME DOWNLOAD BUTTON */}
           <a href={RESUME_URL} target="_blank" rel="noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
               padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
@@ -509,9 +511,7 @@ function About({ dark, scrollTo }) {
                   overflow: "hidden", position: "relative", zIndex: 1,
                   boxShadow: "0 20px 60px rgba(0,212,255,0.28)",
                   border: "3px solid rgba(0,212,255,0.35)" }}>
-                {/* <img src={{Photo}} alt="Vignesh Goud"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }} /> */}
-                  <img
+                <img
                   src={Photo}
                   alt="Vignesh Goud"
                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
@@ -559,7 +559,6 @@ function About({ dark, scrollTo }) {
                 onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
                 Get In Touch →
               </button>
-              {/* ✅ ABOUT SECTION RESUME BUTTON */}
               <a href={RESUME_URL} target="_blank" rel="noreferrer"
                 style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
                   padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
@@ -617,6 +616,7 @@ function Skills({ dark }) {
   );
 }
 
+// ─── Updated ProjCard with background image support ───────────────────────────
 function ProjCard({ project, index, dark }) {
   const t = T(dark);
   const [ref, vis] = useReveal();
@@ -624,55 +624,168 @@ function ProjCard({ project, index, dark }) {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div ref={ref} style={{ background: t.sur, border: "1px solid " + (hovered ? "rgba(0,212,255,0.3)" : t.bdr),
-        borderRadius: 20, padding: "1.85rem", position: "relative", overflow: "hidden", backdropFilter: "blur(8px)",
+    <div
+      ref={ref}
+      style={{
+        background: t.sur,
+        border: "1px solid " + (hovered ? "rgba(0,212,255,0.3)" : t.bdr),
+        borderRadius: 20,
+        overflow: "hidden",
+        position: "relative",
+        backdropFilter: "blur(8px)",
         transition: "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s",
         transform: vis ? (hovered ? "translateY(-8px)" : "translateY(0)") : "translateY(36px)",
         opacity: vis ? 1 : 0,
-        boxShadow: hovered ? "0 25px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.18)" : "none" }}
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, " + project.color + ", transparent)" }} />
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.2rem" }}>
-        <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "2.4rem", fontWeight: 800, color: t.bdr, lineHeight: 1 }}>0{index + 1}</span>
-        <div style={{ display: "flex", gap: "0.45rem" }}>
-          {/* ✅ PROJECT LIVE & CODE LINKS */}
+        boxShadow: hovered
+          ? "0 25px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.18)"
+          : "none",
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* ── Background Image / Fallback Pattern ── */}
+      <div style={{ width: "100%", height: 185, overflow: "hidden", position: "relative" }}>
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              display: "block",
+              transition: "transform 0.5s ease",
+              transform: hovered ? "scale(1.07)" : "scale(1)",
+            }}
+          />
+        ) : (
+          // Animated fallback for Document Upload project
+          <div style={{
+            width: "100%", height: "100%",
+            background: "linear-gradient(135deg, #060c1a 0%, #0a1628 50%, #060c1a 100%)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            position: "relative", overflow: "hidden",
+          }}>
+            {/* Grid lines */}
+            <div style={{
+              position: "absolute", inset: 0,
+              backgroundImage: "linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }} />
+            {/* Glowing orb */}
+            <div style={{
+              position: "absolute", width: 180, height: 180, borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(0,212,255,0.25), transparent 70%)",
+              filter: "blur(35px)",
+            }} />
+            {/* Floating doc icons */}
+            {[
+              { top: "18%", left: "15%", icon: "📄", size: "1.6rem", delay: "0s" },
+              { top: "55%", left: "72%", icon: "📋", size: "1.3rem", delay: "1.2s" },
+              { top: "25%", left: "68%", icon: "✅", size: "1.1rem", delay: "0.6s" },
+              { top: "65%", left: "22%", icon: "🗂️", size: "1.2rem", delay: "1.8s" },
+            ].map((el, i) => (
+              <span key={i} style={{
+                position: "absolute", top: el.top, left: el.left, fontSize: el.size,
+                opacity: 0.55, animation: `floatOrb 6s ease-in-out infinite -${el.delay}`,
+              }}>{el.icon}</span>
+            ))}
+            {/* Center icon */}
+            <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+              <span style={{ fontSize: "3rem", display: "block" }}>📁</span>
+              <span style={{ fontSize: "0.7rem", color: "rgba(0,212,255,0.7)", fontWeight: 600,
+                  letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "0.3rem", display: "block" }}>
+                Doc System
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Gradient overlay fading into card body */}
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0, height: "60%",
+          background: `linear-gradient(to top, ${dark ? "#0d1120" : "#ffffff"} 0%, transparent 100%)`,
+          pointerEvents: "none",
+        }} />
+
+        {/* Top accent bar */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: 3,
+          background: "linear-gradient(90deg, " + project.color + ", transparent)",
+        }} />
+
+        {/* Live / Code buttons overlaid on image top-right */}
+        <div style={{
+          position: "absolute", top: "0.75rem", right: "0.75rem",
+          display: "flex", gap: "0.4rem", zIndex: 2,
+        }}>
           {[
             { Icon: IconLink, label: "Live", href: project.liveUrl, hBg: t.acc, hClr: "#000" },
             { Icon: IconCode, label: "Code", href: project.codeUrl, hBg: t.txt, hClr: t.bg },
           ].map(({ Icon, label, href, hBg, hClr }) => (
             <a key={label} href={href} target="_blank" rel="noreferrer"
-              style={{ display: "inline-flex", alignItems: "center", gap: "0.28rem",
-                  fontSize: "0.78rem", fontWeight: 600, padding: "0.28rem 0.7rem",
-                  borderRadius: 6, border: "1px solid " + t.bdr, color: t.txt2, transition: "all 0.2s", textDecoration: "none" }}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.28rem",
+                fontSize: "0.76rem", fontWeight: 600, padding: "0.26rem 0.65rem",
+                borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)",
+                color: "#fff", background: "rgba(0,0,0,0.55)",
+                backdropFilter: "blur(8px)", transition: "all 0.2s", textDecoration: "none",
+              }}
               onMouseEnter={(e) => { e.currentTarget.style.background = hBg; e.currentTarget.style.borderColor = hBg; e.currentTarget.style.color = hClr; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt2; }}>
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,0,0,0.55)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "#fff"; }}>
               <Icon /> {label}
             </a>
           ))}
         </div>
       </div>
-      <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700, marginBottom: "0.65rem", color: t.txt, lineHeight: 1.3 }}>{project.title}</h3>
-      <p style={{ fontSize: "0.88rem", color: t.txt2, lineHeight: 1.72, marginBottom: "1.1rem" }}>{project.desc}</p>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "0.38rem", marginBottom: "1rem" }}>
-        {project.stack.map((s) => (
-          <span key={s} style={{ fontSize: "0.73rem", fontWeight: 600, padding: "0.22rem 0.58rem",
-              background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", color: t.acc, borderRadius: 5 }}>{s}</span>
-        ))}
-      </div>
-      {expanded && (
-        <ul style={{ display: "flex", flexDirection: "column", gap: "0.48rem", borderTop: "1px solid " + t.bdr, paddingTop: "0.9rem", marginBottom: "0.7rem", animation: "fadeUp 0.3s ease" }}>
-          {project.details.map((detail, i) => (
-            <li key={i} style={{ display: "flex", gap: "0.5rem", fontSize: "0.84rem", color: t.txt2, lineHeight: 1.65 }}>
-              <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.72rem", marginTop: "0.2rem" }}>▸</span>
-              {detail}
-            </li>
+
+      {/* ── Card Body ── */}
+      <div style={{ padding: "1.25rem 1.85rem 1.85rem" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
+          <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "2.2rem", fontWeight: 800, color: t.bdr, lineHeight: 1 }}>
+            0{index + 1}
+          </span>
+        </div>
+
+        <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700,
+            marginBottom: "0.65rem", color: t.txt, lineHeight: 1.3 }}>
+          {project.title}
+        </h3>
+        <p style={{ fontSize: "0.88rem", color: t.txt2, lineHeight: 1.72, marginBottom: "1.1rem" }}>
+          {project.desc}
+        </p>
+
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.38rem", marginBottom: "1rem" }}>
+          {project.stack.map((s) => (
+            <span key={s} style={{
+              fontSize: "0.73rem", fontWeight: 600, padding: "0.22rem 0.58rem",
+              background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
+              color: t.acc, borderRadius: 5,
+            }}>{s}</span>
           ))}
-        </ul>
-      )}
-      <button onClick={() => setExpanded((e) => !e)}
-        style={{ fontSize: "0.8rem", fontWeight: 600, color: t.acc, background: "none", border: "none", cursor: "pointer", fontFamily: "'DM Sans', sans-serif", padding: 0 }}>
-        {expanded ? "Show Less ↑" : "More Details ↓"}
-      </button>
+        </div>
+
+        {expanded && (
+          <ul style={{ display: "flex", flexDirection: "column", gap: "0.48rem",
+              borderTop: "1px solid " + t.bdr, paddingTop: "0.9rem",
+              marginBottom: "0.7rem", animation: "fadeUp 0.3s ease" }}>
+            {project.details.map((detail, i) => (
+              <li key={i} style={{ display: "flex", gap: "0.5rem", fontSize: "0.84rem", color: t.txt2, lineHeight: 1.65 }}>
+                <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.72rem", marginTop: "0.2rem" }}>▸</span>
+                {detail}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <button onClick={() => setExpanded((e) => !e)}
+          style={{ fontSize: "0.8rem", fontWeight: 600, color: t.acc,
+              background: "none", border: "none", cursor: "pointer",
+              fontFamily: "'DM Sans', sans-serif", padding: 0 }}>
+          {expanded ? "Show Less ↑" : "More Details ↓"}
+        </button>
+      </div>
     </div>
   );
 }
@@ -762,7 +875,6 @@ function Education({ dark }) {
             ))}
           </div>
 
-          {/* ✅ CERTIFICATIONS WITH CLICKABLE LINKS */}
           <div>
             <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt, marginBottom: "1.35rem", paddingBottom: "0.65rem", borderBottom: "1px solid " + t.bdr }}>Certifications</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
@@ -960,19 +1072,3 @@ export default function Port() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
