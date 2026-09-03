@@ -1,93 +1,1273 @@
-import React, { useState, useEffect, useRef } from "react";
+// import React, { useState, useEffect, useRef } from "react";
+
+// import Photo from "../assets/myphoto.jpg";
+// import weather from "../assets/weather.jpeg";
+// import canara_bank from "../assets/canara bank.jpeg";
+
+// const RESUME_URL = "https://drive.google.com/file/d/1Evjd5y8lHsTtwetUwq4baPS9_mSzPxIT/view?usp=sharing";
+
+// const DATA = {
+//   personal: {
+//     name: "Vignesh Goud",
+//     email: "vigneshgoud12@gmail.com",
+//     phone: "+91 9505455721",
+//     linkedin: "https://www.linkedin.com/in/vignesh-goud-8187212b6/",
+//     github: "https://github.com/vigneshdev123coder?tab=repositories",
+//     summary:
+//       "Full Stack Web Developer with hands-on professional experience building scalable, secure, and client-facing web applications. Strong logical and analytical thinking with expertise in dashboard development, RESTful APIs, backend file upload systems, and MySQL database design. Proficient in React.js, JavaScript (ES6+), Node.js, and Express.js.",
+//   },
+//   roles: [
+//     "Full Stack Developer",
+//     "Full Stack Engineer",
+//     "Node.js Developer",
+//     "API Architect",
+//     "MySQL Expert",
+//   ],
+//   skills: {
+//     "Frontend 🖥": {
+//       items: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "React Hooks", "React Router"],
+//       levels: [92, 90, 95, 88, 90, 85],
+//     },
+//     "Backend ⚙️": {
+//       items: ["Node.js", "Express.js", "RESTful APIs", "MVC Architecture"],
+//       levels: [85, 83, 88, 82],
+//     },
+//     "Database 🗄": {
+//       items: ["MySQL", "CRUD Operations"],
+//       levels: [82, 90],
+//     },
+//     "Tools 🛠": {
+//       items: ["Git", "GitHub", "VS Code"],
+//       levels: [85, 85, 95],
+//     },
+//   },
+//   projects: [
+//     {
+//       id: 1,
+//       color: "#00d4ff",
+//       image: null, // Add your document system image here when available
+//       title: "Full Stack Document Upload & Tracking System",
+//       stack: ["React", "Node.js", "MySQL"],
+//       desc: "A client-facing document submission system for business service workflows with multi-document upload, status tracking, and admin verification.",
+//       liveUrl: "https://full-stack-document-uploads-and-tra.vercel.app/",
+//       codeUrl: "https://github.com/vigneshdev123coder/full-stack-document-uploads-and-tracking-system-project",
+//       details: [
+//         "Built a client-facing document submission system for business service workflows.",
+//         "Enabled uploading multiple documents including ID proofs, forms, and receipts with status tracking.",
+//         "Developed backend APIs to store documents in structured folders, map metadata in MySQL, and allow admin verification.",
+//       ],
+//     },
+   
+// //     {
+// //   id: 2,
+// //   color: "#16a34a",
+// //   // image: tekfinotax,
+// //   title: "Tekfinotax – Tax & Financial Services Platform",
+// //   stack: ["React.js", "Node.js", "Express.js", "MySQL", "Tailwind CSS"],
+// //   desc: "A business website for Tekfinotax providing tax, GST, accounting, and financial services with responsive design and backend integration.",
+// //   liveUrl: "https://24hr7tekfinotax.com/",
+// //   codeUrl: "", // Private company project
+// //   details: [
+// //     "Developed responsive frontend pages using React.js and Tailwind CSS.",
+// //     "Integrated backend APIs with Node.js and Express.js.",
+// //     "Implemented contact forms and service management with MySQL database.",
+// //     "Optimized the website for mobile and desktop users."
+// //   ],
+// // },
+// // {
+// //   id: 3,
+// //   color: "#2563eb",
+// //   // image: nazdeek,
+// //   title: "Nazdeek – Local Business Discovery Platform",
+// //   stack: ["React.js", "Node.js", "Express.js", "MySQL", "REST API"],
+// //   desc: "A location-based platform that helps users discover nearby businesses and services with category filtering and dynamic listings.",
+// //   liveUrl: "https://www.nazdeek.in/",
+// //   codeUrl: "", // Private company project
+// //   details: [
+// //     "Built reusable React components for business listings and categories.",
+// //     "Integrated REST APIs for fetching dynamic business data.",
+// //     "Implemented search and filtering functionality.",
+// //     "Worked on responsive UI and performance optimization."
+// //   ],
+// // },
+// // 
+
+// {
+//   id: 2,
+//   color: "#16a34a",
+//   // image: tekfinotax,
+//   title: "Tekfinotax – Tax & Financial Services Platform",
+//   stack: ["React.js", "Node.js", "Express.js", "MySQL", "Tailwind CSS"],
+//   desc: "Worked on a business website for Tekfinotax, contributing to the development of tax, GST, accounting, and financial service features.",
+//   liveUrl: "https://24hr7tekfinotax.com/",
+//   codeUrl: "", // Private company project
+//   details: [
+//     "Worked on developing responsive frontend pages using React.js and Tailwind CSS.",
+//     "Worked with Node.js and Express.js to integrate backend APIs.",
+//     "Contributed to contact forms and service-related functionality using MySQL.",
+//     "Worked on responsive design and UI improvements for mobile and desktop devices."
+//   ]
+// },
+// {
+//   id: 3,
+//   color: "#2563eb",
+//   // image: nazdeek,
+//   title: "Nazdeek – Local Business Discovery Platform",
+//   stack: ["React.js", "Node.js", "Express.js", "MySQL", "REST API"],
+//   desc: "Worked on a location-based business discovery platform that helps users find nearby businesses and services through dynamic listings and category-based search.",
+//   liveUrl: "https://www.nazdeek.in/",
+//   codeUrl: "", // Private company project
+//   details: [
+//     "Worked on reusable React components for business listings and category sections.",
+//     "Integrated and consumed REST APIs to display dynamic business data.",
+//     "Contributed to search and filtering functionality for business listings.",
+//     "Worked on responsive UI development and performance improvements."
+//   ]
+// },
+//   ],
+//   experience: [
+//     {
+//       role: "Software Developer",
+//       company: "24hr7 Commerce Pvt. Ltd.",
+//       period: "Apr 2025 – Present",
+//       current: true,
+//       points: [
+//         "Developed responsive admin and client dashboards as Single Page Applications using React.js.",
+//         "Built secure RESTful APIs using Node.js and Express.js following MVC architecture.",
+//         "Implemented backend file upload systems with folder-based storage and MySQL database mapping.",
+//         "Designed and optimized SQL queries and schemas for dashboard-driven workflows.",
+//         "Integrated Razorpay payment gateway with backend verification and automated PDF receipt generation.",
+//       ],
+//     },
+//   ],
+//   education: [
+//     {
+//       degree: "B.Tech – Mechanical Engineering",
+//       institution: "Brilliant Institute of Engineering and Technology",
+//       year: "2023",
+//     },
+//   ],
+//   certifications: [
+//     {
+//       title: "Full Stack Developer",
+//       issuer: "10000 Coders",
+//       link: "https://drive.google.com/file/d/1XLmQZ9eYFGSRjf6Nptbxzc5_W1PoqsgP/view",
+//     },
+//     {
+//       title: "Internship Certificate",
+//       issuer: "24hr7 Commerce Pvt. Ltd.",
+//       link: "https://drive.google.com/file/d/13SZrPAEnj1dUx8S90u4pSx1zVsxU2zXU/view",
+//     },
+//     {
+//       title: "Training Certificate",
+//       issuer: "24hr7 Commerce Pvt. Ltd.",
+//       link: "https://drive.google.com/file/d/1mE_22cG3XcKgDv04-_5Wh8dmdhHuSMOu/view",
+//     },
+//   ],
+// };
+
+// const GLOBAL_CSS = [
+//   "@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');",
+//   "*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }",
+//   "html { scroll-behavior: smooth; }",
+//   "body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }",
+//   "a { text-decoration: none; color: inherit; }",
+//   "ul { list-style: none; }",
+//   "::selection { background: #00d4ff; color: #000; }",
+//   "@keyframes floatOrb { 0%,100%{ transform:translateY(0) scale(1) } 50%{ transform:translateY(-28px) scale(1.04) } }",
+//   "@keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.6; transform:scale(.85) } }",
+//   "@keyframes blink { 0%,100%{ opacity:1 } 50%{ opacity:0 } }",
+//   "@keyframes scrollLine { 0%{ transform:scaleY(0); transform-origin:top } 50%{ transform:scaleY(1); transform-origin:top } 51%{ transform-origin:bottom } 100%{ transform:scaleY(0); transform-origin:bottom } }",
+//   "@keyframes ringFloat { 0%,100%{ transform:scale(1); opacity:.5 } 50%{ transform:scale(1.03); opacity:1 } }",
+//   "@keyframes fadeUp { from{ opacity:0; transform:translateY(-8px) } to{ opacity:1; transform:translateY(0) } }",
+// ].join("\n");
+
+// function T(dark) {
+//   return {
+//     bg:    dark ? "#050810" : "#f5f7ff",
+//     bg2:   dark ? "#0d1120" : "#eef1fb",
+//     sur:   dark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.85)",
+//     sur2:  dark ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.97)",
+//     bdr:   dark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
+//     txt:   dark ? "#f0f4ff" : "#0d1120",
+//     txt2:  dark ? "#8b9ab8" : "#3d4f72",
+//     txt3:  dark ? "#5a6888" : "#7a8baa",
+//     navBg: dark ? "rgba(5,8,16,0.92)" : "rgba(245,247,255,0.92)",
+//     acc:   "#00d4ff",
+//     acc2:  "#7c3aed",
+//     dark,
+//   };
+// }
+
+// function useTyping(words) {
+//   const [display, setDisplay] = useState("");
+//   const [wi, setWi] = useState(0);
+//   const [ci, setCi] = useState(0);
+//   const [del, setDel] = useState(false);
+//   useEffect(() => {
+//     const word = words[wi];
+//     let timer;
+//     if (!del && ci < word.length) {
+//       timer = setTimeout(() => setCi((c) => c + 1), 90);
+//     } else if (!del && ci === word.length) {
+//       timer = setTimeout(() => setDel(true), 1900);
+//     } else if (del && ci > 0) {
+//       timer = setTimeout(() => setCi((c) => c - 1), 45);
+//     } else {
+//       setDel(false);
+//       setWi((w) => (w + 1) % words.length);
+//     }
+//     setDisplay(word.substring(0, ci));
+//     return () => clearTimeout(timer);
+//   }, [ci, del, wi, words]);
+//   return display;
+// }
+
+// function useReveal() {
+//   const ref = useRef(null);
+//   const [vis, setVis] = useState(false);
+//   useEffect(() => {
+//     const obs = new IntersectionObserver(
+//       ([entry]) => { if (entry.isIntersecting) setVis(true); },
+//       { threshold: 0.12 }
+//     );
+//     if (ref.current) obs.observe(ref.current);
+//     return () => obs.disconnect();
+//   }, []);
+//   return [ref, vis];
+// }
+
+// function revealStyle(vis) {
+//   return {
+//     opacity: vis ? 1 : 0,
+//     transform: vis ? "translateY(0)" : "translateY(36px)",
+//     transition: "opacity 0.75s ease, transform 0.75s ease",
+//   };
+// }
+
+// function ctr() {
+//   return { maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1.2rem,5vw,2.5rem)" };
+// }
+
+// function sec(bg) {
+//   return { padding: "clamp(4.5rem,9vw,7rem) 0", background: bg, transition: "background 0.4s" };
+// }
+
+// function btnP(t) {
+//   return {
+//     display: "inline-flex", alignItems: "center", gap: "0.4rem",
+//     padding: "0.72rem 1.6rem", background: t.acc, color: "#000",
+//     fontWeight: 700, fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
+//     borderRadius: 8, border: "2px solid " + t.acc, cursor: "pointer", transition: "all 0.25s",
+//   };
+// }
+
+// function btnS(t) {
+//   return {
+//     display: "inline-flex", alignItems: "center", gap: "0.4rem",
+//     padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
+//     fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
+//     borderRadius: 8, border: "2px solid " + t.bdr, background: t.sur,
+//     cursor: "pointer", transition: "all 0.25s",
+//   };
+// }
+
+// function IconGH() {
+//   return (
+//     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+//       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+//     </svg>
+//   );
+// }
+
+// function IconLI() {
+//   return (
+//     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+//       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+//     </svg>
+//   );
+// }
+
+// function IconEM() {
+//   return (
+//     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+//       <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+//     </svg>
+//   );
+// }
+
+// function IconLink() {
+//   return (
+//     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+//       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+//       <polyline points="15 3 21 3 21 9" />
+//       <line x1="10" y1="14" x2="21" y2="3" />
+//     </svg>
+//   );
+// }
+
+// function IconCode() {
+//   return (
+//     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+//       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+//     </svg>
+//   );
+// }
+
+// function IconDownload() {
+//   return (
+//     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+//       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+//       <polyline points="7 10 12 15 17 10" />
+//       <line x1="12" y1="15" x2="12" y2="3" />
+//     </svg>
+//   );
+// }
+
+// function SecHdr({ tag, title, sub, t }) {
+//   return (
+//     <div style={{ textAlign: "center", marginBottom: "clamp(2.5rem,5vw,4.5rem)" }}>
+//       <span style={{
+//         display: "inline-block", fontSize: "0.72rem", fontWeight: 600,
+//         letterSpacing: "0.2em", textTransform: "uppercase", color: t.acc,
+//         background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
+//         padding: "0.28rem 0.9rem", borderRadius: 50, marginBottom: "0.9rem",
+//       }}>
+//         {tag}
+//       </span>
+//       <h2 style={{
+//         fontFamily: "'Syne', sans-serif",
+//         fontSize: "clamp(1.8rem,4.5vw,2.75rem)",
+//         fontWeight: 800, color: t.txt, lineHeight: 1.1,
+//       }}>
+//         {title}
+//       </h2>
+//       {sub && <p style={{ color: t.txt2, marginTop: "0.6rem", fontSize: "0.97rem" }}>{sub}</p>}
+//     </div>
+//   );
+// }
+
+// function Navbar({ dark, toggleTheme, scrollTo }) {
+//   const t = T(dark);
+//   const [scrolled, setScrolled] = useState(false);
+//   const [open, setOpen] = useState(false);
+
+//   useEffect(() => {
+//     const fn = () => setScrolled(window.scrollY > 50);
+//     window.addEventListener("scroll", fn);
+//     return () => window.removeEventListener("scroll", fn);
+//   }, []);
+
+//   const links = ["About", "Skills", "Projects", "Experience", "Education", "Contact"];
+
+//   return (
+//     <nav style={{
+//       position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+//       display: "flex", alignItems: "center", justifyContent: "space-between",
+//       padding: (scrolled ? "0.8rem" : "1.2rem") + " clamp(1.2rem,5vw,2.5rem)",
+//       background: scrolled ? t.navBg : "transparent",
+//       backdropFilter: scrolled ? "blur(20px)" : "none",
+//       borderBottom: scrolled ? "1px solid " + t.bdr : "none",
+//       transition: "all 0.4s",
+//     }}>
+//       <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//         style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.4rem", fontWeight: 800, cursor: "pointer", color: t.txt }}>
+//         <span style={{ color: t.acc, fontSize: "1.6rem" }}>V</span>ignesh<span style={{ color: t.acc }}>.</span>
+//       </div>
+
+//       <div style={open ? {
+//         position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
+//         background: dark ? "rgba(5,8,16,0.97)" : "rgba(245,247,255,0.97)",
+//         backdropFilter: "blur(20px)", display: "flex", flexDirection: "column",
+//         alignItems: "center", justifyContent: "center", gap: "1.5rem", zIndex: 998,
+//       } : { display: "flex", alignItems: "center", gap: "0.2rem" }}>
+//         {links.map((l) => (
+//           <button key={l} onClick={() => { scrollTo(l.toLowerCase()); setOpen(false); }}
+//             style={{ fontFamily: "'DM Sans', sans-serif", fontSize: open ? "1.25rem" : "0.88rem",
+//               fontWeight: open ? 700 : 500, color: t.txt2, padding: "0.35rem 0.72rem", borderRadius: 6,
+//               background: "none", border: "none", cursor: "pointer", transition: "all 0.2s" }}
+//             onMouseEnter={(e) => { e.currentTarget.style.color = t.txt; e.currentTarget.style.background = t.sur; }}
+//             onMouseLeave={(e) => { e.currentTarget.style.color = t.txt2; e.currentTarget.style.background = "none"; }}>
+//             {l}
+//           </button>
+//         ))}
+//         <a href={RESUME_URL} target="_blank" rel="noreferrer"
+//           style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.84rem", fontWeight: 600,
+//             color: t.acc, border: "1px solid " + t.acc, padding: "0.36rem 0.9rem",
+//             borderRadius: 6, background: "none", cursor: "pointer",
+//             marginLeft: open ? 0 : "0.4rem", transition: "all 0.2s",
+//             display: "inline-flex", alignItems: "center", gap: "0.35rem", textDecoration: "none" }}
+//           onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.color = "#000"; }}
+//           onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = t.acc; }}>
+//           <IconDownload /> Resume
+//         </a>
+//       </div>
+
+//       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", zIndex: 999, position: "relative" }}>
+//         <button onClick={toggleTheme} style={{ width: 34, height: 34, borderRadius: "50%", background: t.sur,
+//             border: "1px solid " + t.bdr, display: "flex", alignItems: "center",
+//             justifyContent: "center", fontSize: "1rem", color: t.txt2, cursor: "pointer" }}>
+//           {dark ? "☀" : "◑"}
+//         </button>
+//         <button onClick={() => setOpen((o) => !o)} style={{ display: "flex", flexDirection: "column", gap: 5,
+//             width: 34, height: 34, alignItems: "center", justifyContent: "center",
+//             background: "none", border: "none", cursor: "pointer", zIndex: 999 }}>
+//           {[0, 1, 2].map((i) => (
+//             <span key={i} style={{ display: "block", width: 22, height: 2, background: t.txt2, borderRadius: 2,
+//                 transition: "transform 0.3s, opacity 0.3s",
+//                 transform: open ? i === 0 ? "translateY(7px) rotate(45deg)" : i === 2 ? "translateY(-7px) rotate(-45deg)" : "none" : "none",
+//                 opacity: open && i === 1 ? 0 : 1 }} />
+//           ))}
+//         </button>
+//       </div>
+//     </nav>
+//   );
+// }
+
+// function Hero({ dark, scrollTo }) {
+//   const t = T(dark);
+//   const typed = useTyping(DATA.roles);
+
+//   return (
+//     <section id="top" style={{ minHeight: "100vh", display: "flex", alignItems: "center",
+//         position: "relative", overflow: "hidden", padding: "5.5rem 0 3rem", background: t.bg, transition: "background 0.4s" }}>
+//       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+//         {[
+//           { w: 500, h: 500, top: "-10%", left: "-10%", color: "rgba(0,212,255,0.32)", d: 0 },
+//           { w: 420, h: 420, top: "20%", right: "3%", color: "rgba(124,58,237,0.28)", d: 3 },
+//           { w: 300, h: 300, bottom: "12%", left: "40%", color: "rgba(245,158,11,0.20)", d: 5 },
+//         ].map((o, i) => (
+//           <div key={i} style={{ position: "absolute", borderRadius: "50%", filter: "blur(90px)", opacity: 0.38,
+//               width: o.w, height: o.h, top: o.top, left: o.left, right: o.right, bottom: o.bottom,
+//               background: "radial-gradient(circle, " + o.color + ", transparent 70%)",
+//               animation: "floatOrb " + (9 + o.d) + "s ease-in-out infinite -" + o.d + "s" }} />
+//         ))}
+//         <div style={{ position: "absolute", inset: 0,
+//             backgroundImage: "linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)",
+//             backgroundSize: "60px 60px" }} />
+//       </div>
+
+//       <div style={{ ...ctr(), position: "relative", zIndex: 1 }}>
+//         <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem",
+//             fontSize: "0.79rem", fontWeight: 500, letterSpacing: "0.05em",
+//             color: t.txt2, background: t.sur, border: "1px solid " + t.bdr,
+//             padding: "0.38rem 1rem", borderRadius: 50, marginBottom: "1.5rem", backdropFilter: "blur(8px)" }}>
+//           <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22c55e",
+//               boxShadow: "0 0 8px #22c55e", animation: "pulseDot 2s infinite" }} />
+//           Available for opportunities
+//         </div>
+//         <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(2.5rem,7vw,5rem)",
+//             fontWeight: 800, lineHeight: 1.05, marginBottom: "0.75rem", color: t.txt }}>
+//           {"Hi, I'm "}
+//           <span style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
+//               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+//             Vignesh Goud
+//           </span>
+//         </h1>
+//         <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(1.2rem,3.5vw,1.9rem)",
+//             fontWeight: 600, color: t.txt2, marginBottom: "1.2rem", minHeight: "2.4rem" }}>
+//           <span style={{ color: t.acc }}>{typed}</span>
+//           <span style={{ display: "inline-block", color: t.acc, animation: "blink 1s step-end infinite", marginLeft: 2 }}>|</span>
+//         </h2>
+//         <p style={{ fontSize: "clamp(0.95rem,2vw,1.1rem)", color: t.txt2, maxWidth: 520, marginBottom: "2rem", lineHeight: 1.78 }}>
+//           Building scalable, secure, and client-facing web applications with clean, maintainable architecture.
+//         </p>
+//         <div style={{ display: "flex", alignItems: "center", gap: "2rem", marginBottom: "2.2rem", flexWrap: "wrap" }}>
+//           {[["1+", "Year Experience"], ["3+", "Projects Built"], ["10+", "Technologies"]].map(([num, label], i) => (
+//             <React.Fragment key={label}>
+//               {i > 0 && <div style={{ width: 1, height: 38, background: t.bdr }} />}
+//               <div>
+//                 <span style={{ display: "block", fontFamily: "'Syne', sans-serif", fontSize: "2rem", fontWeight: 800, color: t.acc }}>{num}</span>
+//                 <span style={{ fontSize: "0.74rem", color: t.txt3, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</span>
+//               </div>
+//             </React.Fragment>
+//           ))}
+//         </div>
+//         <div style={{ display: "flex", gap: "1rem", marginBottom: "2.2rem", flexWrap: "wrap", alignItems: "center" }}>
+//           <button style={btnP(t)} onClick={() => scrollTo("projects")}
+//             onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; }}
+//             onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+//             View My Work
+//           </button>
+//           <button style={btnS(t)} onClick={() => scrollTo("contact")}
+//             onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; }}
+//             onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; }}>
+//             {"Let's Connect"}
+//           </button>
+//           <a href={RESUME_URL} target="_blank" rel="noreferrer"
+//             style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
+//               padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
+//               fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
+//               borderRadius: 8, border: "2px solid rgba(0,212,255,0.35)",
+//               background: "rgba(0,212,255,0.06)", cursor: "pointer", transition: "all 0.25s",
+//               textDecoration: "none" }}
+//             onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.background = "rgba(0,212,255,0.12)"; }}
+//             onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.35)"; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; e.currentTarget.style.background = "rgba(0,212,255,0.06)"; }}>
+//             <IconDownload /> Resume
+//           </a>
+//         </div>
+//         <div style={{ display: "flex", gap: "0.65rem" }}>
+//           {[
+//             { Icon: IconGH, href: DATA.personal.github, label: "GitHub" },
+//             { Icon: IconLI, href: DATA.personal.linkedin, label: "LinkedIn" },
+//             { Icon: IconEM, href: "mailto:" + DATA.personal.email, label: "Email" },
+//           ].map(({ Icon, href, label }) => (
+//             <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noreferrer" aria-label={label}
+//               style={{ width: 42, height: 42, display: "flex", alignItems: "center", justifyContent: "center",
+//                   background: t.sur, border: "1px solid " + t.bdr, borderRadius: 10, color: t.txt2, transition: "all 0.22s" }}
+//               onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = "#000"; e.currentTarget.style.transform = "translateY(-3px)"; }}
+//               onMouseLeave={(e) => { e.currentTarget.style.background = t.sur; e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt2; e.currentTarget.style.transform = "none"; }}>
+//               <Icon />
+//             </a>
+//           ))}
+//         </div>
+//       </div>
+
+//       <div style={{ position: "absolute", bottom: "2rem", right: "2.5rem", display: "flex", flexDirection: "column",
+//           alignItems: "center", gap: "0.4rem", color: t.txt3, fontSize: "0.68rem", letterSpacing: "0.12em",
+//           textTransform: "uppercase", writingMode: "vertical-rl", zIndex: 1 }}>
+//         <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom, " + t.acc + ", transparent)",
+//             animation: "scrollLine 2.2s ease-in-out infinite" }} />
+//         <span>Scroll</span>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function About({ dark, scrollTo }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   return (
+//     <section id="about" style={sec(t.bg2)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="01 / About" title="Who Am I" t={t} />
+//         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.65fr", gap: "clamp(2rem,6vw,5rem)", alignItems: "start" }}>
+//           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
+//             <div style={{ position: "relative", width: 200, height: 200 }}>
+//               <div style={{ width: "100%", height: "100%", borderRadius: 28,
+//                   overflow: "hidden", position: "relative", zIndex: 1,
+//                   boxShadow: "0 20px 60px rgba(0,212,255,0.28)",
+//                   border: "3px solid rgba(0,212,255,0.35)" }}>
+//                 <img
+//                   src={Photo}
+//                   alt="Vignesh Goud"
+//                   style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
+//                 />
+//               </div>
+//               {[{ i: -12, d: "0s", o: 1 }, { i: -24, d: "-2s", o: 0.5 }].map(({ i, d, o }) => (
+//                 <div key={i} style={{ position: "absolute", top: i, left: i, right: i, bottom: i,
+//                     borderRadius: 38, border: "1px solid rgba(0,212,255,0.18)",
+//                     animation: "ringFloat 4s ease-in-out infinite " + d, opacity: o }} />
+//               ))}
+//             </div>
+//             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.45rem", justifyContent: "center" }}>
+//               {["⚡ React.js", "🔧 Node.js", "🗄 MySQL", "🚀 REST APIs", "💳 Razorpay", "🛠 Express.js"].map((c) => (
+//                 <span key={c} style={{ fontSize: "0.78rem", fontWeight: 500, padding: "0.28rem 0.7rem",
+//                     background: t.sur2, border: "1px solid " + t.bdr, borderRadius: 50, color: t.txt2 }}>{c}</span>
+//               ))}
+//             </div>
+//           </div>
+//           <div>
+//             <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.35rem", fontWeight: 700, marginBottom: "0.9rem", color: t.txt }}>
+//               Full Stack Developer based in India
+//             </h3>
+//             <p style={{ color: t.txt2, lineHeight: 1.82, marginBottom: "1.8rem", fontSize: "0.97rem" }}>
+//               {DATA.personal.summary}
+//             </p>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem", marginBottom: "1.8rem" }}>
+//               {[
+//                 { icon: "🎯", strong: "Focus Areas", p: "Dashboard development, RESTful APIs, backend file systems, MySQL design" },
+//                 { icon: "💼", strong: "Current Role", p: "Software Developer at 24hr7 Commerce Pvt. Ltd." },
+//                 { icon: "🎓", strong: "Background", p: "B.Tech Mechanical Engineering turned Full Stack Developer" },
+//                 { icon: "📍", strong: "Location", p: "India — open to remote & on-site opportunities" },
+//               ].map(({ icon, strong, p }) => (
+//                 <div key={strong} style={{ display: "flex", gap: "0.9rem", alignItems: "flex-start" }}>
+//                   <span style={{ fontSize: "1.2rem", flexShrink: 0, marginTop: "0.1rem" }}>{icon}</span>
+//                   <div>
+//                     <strong style={{ display: "block", fontSize: "0.88rem", fontWeight: 600, color: t.txt, marginBottom: "0.2rem" }}>{strong}</strong>
+//                     <p style={{ fontSize: "0.85rem", color: t.txt2 }}>{p}</p>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//             <div style={{ display: "flex", gap: "0.85rem", flexWrap: "wrap" }}>
+//               <button style={btnP(t)} onClick={() => scrollTo("contact")}
+//                 onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; }}
+//                 onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+//                 Get In Touch →
+//               </button>
+//               <a href={RESUME_URL} target="_blank" rel="noreferrer"
+//                 style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
+//                   padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
+//                   fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
+//                   borderRadius: 8, border: "2px solid " + t.bdr, background: t.sur,
+//                   cursor: "pointer", transition: "all 0.25s", textDecoration: "none" }}
+//                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; }}
+//                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; }}>
+//                 <IconDownload /> View Resume
+//               </a>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Skills({ dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   return (
+//     <section id="skills" style={sec(t.bg)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="02 / Skills" title="Technical Arsenal" t={t} />
+//         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(255px, 1fr))", gap: "1.4rem" }}>
+//           {Object.entries(DATA.skills).map(([cat, { items, levels }]) => (
+//             <div key={cat} style={{ background: t.sur, border: "1px solid " + t.bdr, borderRadius: 16,
+//                 padding: "1.75rem", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", backdropFilter: "blur(8px)" }}
+//               onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.borderColor = "rgba(0,212,255,0.3)"; e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,0.4)"; }}
+//               onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.boxShadow = "none"; }}>
+//               <div style={{ display: "flex", alignItems: "center", gap: "0.7rem", marginBottom: "1.4rem" }}>
+//                 <span style={{ fontSize: "1.45rem" }}>{cat.split(" ")[1] || ""}</span>
+//                 <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt }}>{cat.split(" ")[0]}</h3>
+//               </div>
+//               <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+//                 {items.map((skill, i) => (
+//                   <div key={skill}>
+//                     <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: t.txt2, marginBottom: "0.3rem" }}>
+//                       <span>{skill}</span>
+//                       <span style={{ fontSize: "0.73rem", color: t.acc, fontWeight: 600 }}>{levels[i]}%</span>
+//                     </div>
+//                     <div style={{ height: 4, background: t.bdr, borderRadius: 4, overflow: "hidden" }}>
+//                       <div style={{ height: "100%", background: "linear-gradient(90deg, #00d4ff, #7c3aed)", borderRadius: 4,
+//                           width: vis ? levels[i] + "%" : "0%", transition: "width 1.3s cubic-bezier(0.4,0,0.2,1) " + (i * 0.06) + "s" }} />
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// // ─── Updated ProjCard with background image support ───────────────────────────
+// function ProjCard({ project, index, dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   const [expanded, setExpanded] = useState(false);
+//   const [hovered, setHovered] = useState(false);
+
+//   return (
+//     <div
+//       ref={ref}
+//       style={{
+//         background: t.sur,
+//         border: "1px solid " + (hovered ? "rgba(0,212,255,0.3)" : t.bdr),
+//         borderRadius: 20,
+//         overflow: "hidden",
+//         position: "relative",
+//         backdropFilter: "blur(8px)",
+//         transition: "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s",
+//         transform: vis ? (hovered ? "translateY(-8px)" : "translateY(0)") : "translateY(36px)",
+//         opacity: vis ? 1 : 0,
+//         boxShadow: hovered
+//           ? "0 25px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.18)"
+//           : "none",
+//       }}
+//       onMouseEnter={() => setHovered(true)}
+//       onMouseLeave={() => setHovered(false)}
+//     >
+//       {/* ── Background Image / Fallback Pattern ── */}
+//       <div style={{ width: "100%", height: 185, overflow: "hidden", position: "relative" }}>
+//         {project.image ? (
+//           <img
+//             src={project.image}
+//             alt={project.title}
+//             style={{
+//               width: "100%",
+//               height: "100%",
+//               objectFit: "cover",
+//               objectPosition: "center",
+//               display: "block",
+//               transition: "transform 0.5s ease",
+//               transform: hovered ? "scale(1.07)" : "scale(1)",
+//             }}
+//           />
+//         ) : (
+//           // Animated fallback for Document Upload project
+//           <div style={{
+//             width: "100%", height: "100%",
+//             background: "linear-gradient(135deg, #060c1a 0%, #0a1628 50%, #060c1a 100%)",
+//             display: "flex", alignItems: "center", justifyContent: "center",
+//             position: "relative", overflow: "hidden",
+//           }}>
+//             {/* Grid lines */}
+//             <div style={{
+//               position: "absolute", inset: 0,
+//               backgroundImage: "linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px)",
+//               backgroundSize: "28px 28px",
+//             }} />
+//             {/* Glowing orb */}
+//             <div style={{
+//               position: "absolute", width: 180, height: 180, borderRadius: "50%",
+//               background: "radial-gradient(circle, rgba(0,212,255,0.25), transparent 70%)",
+//               filter: "blur(35px)",
+//             }} />
+//             {/* Floating doc icons */}
+//             {[
+//               { top: "18%", left: "15%", icon: "📄", size: "1.6rem", delay: "0s" },
+//               { top: "55%", left: "72%", icon: "📋", size: "1.3rem", delay: "1.2s" },
+//               { top: "25%", left: "68%", icon: "✅", size: "1.1rem", delay: "0.6s" },
+//               { top: "65%", left: "22%", icon: "🗂️", size: "1.2rem", delay: "1.8s" },
+//             ].map((el, i) => (
+//               <span key={i} style={{
+//                 position: "absolute", top: el.top, left: el.left, fontSize: el.size,
+//                 opacity: 0.55, animation: `floatOrb 6s ease-in-out infinite -${el.delay}`,
+//               }}>{el.icon}</span>
+//             ))}
+//             {/* Center icon */}
+//             <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+//               <span style={{ fontSize: "3rem", display: "block" }}>📁</span>
+//               <span style={{ fontSize: "0.7rem", color: "rgba(0,212,255,0.7)", fontWeight: 600,
+//                   letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "0.3rem", display: "block" }}>
+//                 Doc System
+//               </span>
+//             </div>
+//           </div>
+//         )}
+
+//         {/* Gradient overlay fading into card body */}
+//         <div style={{
+//           position: "absolute", bottom: 0, left: 0, right: 0, height: "60%",
+//           background: `linear-gradient(to top, ${dark ? "#0d1120" : "#ffffff"} 0%, transparent 100%)`,
+//           pointerEvents: "none",
+//         }} />
+
+//         {/* Top accent bar */}
+//         <div style={{
+//           position: "absolute", top: 0, left: 0, right: 0, height: 3,
+//           background: "linear-gradient(90deg, " + project.color + ", transparent)",
+//         }} />
+
+//         {/* Live / Code buttons overlaid on image top-right */}
+//         <div style={{
+//           position: "absolute", top: "0.75rem", right: "0.75rem",
+//           display: "flex", gap: "0.4rem", zIndex: 2,
+//         }}>
+//           {[
+//             { Icon: IconLink, label: "Live", href: project.liveUrl, hBg: t.acc, hClr: "#000" },
+//             { Icon: IconCode, label: "Code", href: project.codeUrl, hBg: t.txt, hClr: t.bg },
+//           ].map(({ Icon, label, href, hBg, hClr }) => (
+//             <a key={label} href={href} target="_blank" rel="noreferrer"
+//               style={{
+//                 display: "inline-flex", alignItems: "center", gap: "0.28rem",
+//                 fontSize: "0.76rem", fontWeight: 600, padding: "0.26rem 0.65rem",
+//                 borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)",
+//                 color: "#fff", background: "rgba(0,0,0,0.55)",
+//                 backdropFilter: "blur(8px)", transition: "all 0.2s", textDecoration: "none",
+//               }}
+//               onMouseEnter={(e) => { e.currentTarget.style.background = hBg; e.currentTarget.style.borderColor = hBg; e.currentTarget.style.color = hClr; }}
+//               onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,0,0,0.55)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "#fff"; }}>
+//               <Icon /> {label}
+//             </a>
+//           ))}
+//         </div>
+//       </div>
+
+//       {/* ── Card Body ── */}
+//       <div style={{ padding: "1.25rem 1.85rem 1.85rem" }}>
+//         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
+//           <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "2.2rem", fontWeight: 800, color: t.bdr, lineHeight: 1 }}>
+//             0{index + 1}
+//           </span>
+//         </div>
+
+//         <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700,
+//             marginBottom: "0.65rem", color: t.txt, lineHeight: 1.3 }}>
+//           {project.title}
+//         </h3>
+//         <p style={{ fontSize: "0.88rem", color: t.txt2, lineHeight: 1.72, marginBottom: "1.1rem" }}>
+//           {project.desc}
+//         </p>
+
+//         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.38rem", marginBottom: "1rem" }}>
+//           {project.stack.map((s) => (
+//             <span key={s} style={{
+//               fontSize: "0.73rem", fontWeight: 600, padding: "0.22rem 0.58rem",
+//               background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
+//               color: t.acc, borderRadius: 5,
+//             }}>{s}</span>
+//           ))}
+//         </div>
+
+//         {expanded && (
+//           <ul style={{ display: "flex", flexDirection: "column", gap: "0.48rem",
+//               borderTop: "1px solid " + t.bdr, paddingTop: "0.9rem",
+//               marginBottom: "0.7rem", animation: "fadeUp 0.3s ease" }}>
+//             {project.details.map((detail, i) => (
+//               <li key={i} style={{ display: "flex", gap: "0.5rem", fontSize: "0.84rem", color: t.txt2, lineHeight: 1.65 }}>
+//                 <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.72rem", marginTop: "0.2rem" }}>▸</span>
+//                 {detail}
+//               </li>
+//             ))}
+//           </ul>
+//         )}
+
+//         <button onClick={() => setExpanded((e) => !e)}
+//           style={{ fontSize: "0.8rem", fontWeight: 600, color: t.acc,
+//               background: "none", border: "none", cursor: "pointer",
+//               fontFamily: "'DM Sans', sans-serif", padding: 0 }}>
+//           {expanded ? "Show Less ↑" : "More Details ↓"}
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// function Projects({ dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   return (
+//     <section id="projects" style={sec(t.bg2)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="03 / Projects" title="Featured Work" t={t} />
+//         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))", gap: "1.75rem" }}>
+//           {DATA.projects.map((p, i) => <ProjCard key={p.id} project={p} index={i} dark={dark} />)}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Experience({ dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   return (
+//     <section id="experience" style={sec(t.bg)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="04 / Experience" title="Work History" t={t} />
+//         <div style={{ maxWidth: 820, margin: "0 auto" }}>
+//           {DATA.experience.map((exp, i) => (
+//             <div key={i} style={{ display: "flex", gap: "1.4rem" }}>
+//               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
+//                 <div style={{ width: 13, height: 13, borderRadius: "50%", background: t.acc, border: "2px solid " + t.acc,
+//                     boxShadow: "0 0 12px rgba(0,212,255,0.55)", flexShrink: 0, marginTop: 5 }} />
+//                 <div style={{ flex: 1, width: 2, background: t.bdr, margin: "4px 0" }} />
+//               </div>
+//               <div style={{ flex: 1, background: t.sur, border: "1px solid " + t.bdr, borderRadius: 16, padding: "1.7rem 1.9rem", marginBottom: "2rem", transition: "border-color 0.3s" }}
+//                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; }}
+//                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; }}>
+//                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.2rem", gap: "1rem", flexWrap: "wrap" }}>
+//                   <div>
+//                     <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700, color: t.txt, marginBottom: "0.22rem" }}>{exp.role}</div>
+//                     <div style={{ fontSize: "0.88rem", color: t.acc, fontWeight: 500 }}>{exp.company}</div>
+//                   </div>
+//                   <span style={{ fontSize: "0.78rem", color: "#22c55e", background: t.sur2, padding: "0.28rem 0.72rem",
+//                       borderRadius: 50, display: "flex", alignItems: "center", gap: "0.38rem", fontWeight: 500, whiteSpace: "nowrap" }}>
+//                     <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 6px #22c55e", animation: "pulseDot 2s infinite" }} />
+//                     {exp.period}
+//                   </span>
+//                 </div>
+//                 <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+//                   {exp.points.map((pt, j) => (
+//                     <li key={j} style={{ display: "flex", gap: "0.55rem", fontSize: "0.88rem", color: t.txt2, lineHeight: 1.68 }}>
+//                       <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.82rem", marginTop: "0.05rem" }}>{"→"}</span>
+//                       {pt}
+//                     </li>
+//                   ))}
+//                 </ul>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Education({ dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   return (
+//     <section id="education" style={sec(t.bg2)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="05 / Education" title="Academic Background" t={t} />
+//         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem" }}>
+//           <div>
+//             <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt, marginBottom: "1.35rem", paddingBottom: "0.65rem", borderBottom: "1px solid " + t.bdr }}>Education</h3>
+//             {DATA.education.map((edu, i) => (
+//               <div key={i} style={{ display: "flex", gap: "0.9rem", background: t.sur, border: "1px solid " + t.bdr, borderRadius: 14, padding: "1.4rem", transition: "border-color 0.3s" }}
+//                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; }}
+//                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; }}>
+//                 <div style={{ fontSize: "1.85rem", flexShrink: 0 }}>🎓</div>
+//                 <div>
+//                   <h4 style={{ fontSize: "0.97rem", fontWeight: 600, color: t.txt, marginBottom: "0.22rem" }}>{edu.degree}</h4>
+//                   <p style={{ fontSize: "0.85rem", color: t.txt2, marginBottom: "0.38rem" }}>{edu.institution}</p>
+//                   <span style={{ fontSize: "0.75rem", color: t.acc, fontWeight: 600, background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", padding: "0.18rem 0.55rem", borderRadius: 50 }}>{edu.year}</span>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           <div>
+//             <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt, marginBottom: "1.35rem", paddingBottom: "0.65rem", borderBottom: "1px solid " + t.bdr }}>Certifications</h3>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
+//               {DATA.certifications.map((cert, i) => (
+//                 <a key={i} href={cert.link} target="_blank" rel="noreferrer"
+//                   style={{ display: "flex", gap: "0.85rem", alignItems: "center", background: t.sur, border: "1px solid " + t.bdr,
+//                       borderRadius: 12, padding: "0.92rem 1.15rem", transition: "border-color 0.3s, transform 0.2s",
+//                       textDecoration: "none", color: "inherit", cursor: "pointer" }}
+//                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; e.currentTarget.style.transform = "translateX(4px)"; }}
+//                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.transform = "none"; }}>
+//                   <span style={{ fontSize: "1.25rem", flexShrink: 0 }}>🏆</span>
+//                   <div style={{ flex: 1 }}>
+//                     <strong style={{ display: "block", fontSize: "0.87rem", color: t.txt, marginBottom: "0.12rem", fontWeight: 600 }}>{cert.title}</strong>
+//                     <p style={{ fontSize: "0.8rem", color: t.txt2 }}>{cert.issuer}</p>
+//                   </div>
+//                   <span style={{ fontSize: "0.72rem", color: t.acc, fontWeight: 600, display: "flex", alignItems: "center", gap: "0.22rem", whiteSpace: "nowrap" }}>
+//                     View ↗
+//                   </span>
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Contact({ dark }) {
+//   const t = T(dark);
+//   const [ref, vis] = useReveal();
+//   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+//   const [errors, setErrors] = useState({});
+//   const [status, setStatus] = useState(null);
+
+//   const validate = () => {
+//     const e = {};
+//     if (!form.name.trim()) e.name = "Name is required";
+//     if (!form.email.trim()) e.email = "Email is required";
+//     else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "Invalid email address";
+//     if (form.message.trim().length < 20) e.message = "Message must be at least 20 characters";
+//     return e;
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const errs = validate();
+//     if (Object.keys(errs).length) { setErrors(errs); return; }
+//     setStatus("sending");
+//     setTimeout(() => { setStatus("success"); setForm({ name: "", email: "", subject: "", message: "" }); }, 1400);
+//   };
+
+//   const inputSt = (hasErr) => ({
+//     background: t.bg, border: "1px solid " + (hasErr ? "#ef4444" : t.bdr),
+//     borderRadius: 8, padding: "0.7rem 0.95rem",
+//     fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem",
+//     color: t.txt, outline: "none", width: "100%", transition: "border-color 0.2s, box-shadow 0.2s",
+//   });
+
+//   const contacts = [
+//     { icon: "✉", label: "Email", value: DATA.personal.email, href: "mailto:" + DATA.personal.email },
+//     { icon: "📞", label: "Phone", value: DATA.personal.phone, href: "tel:" + DATA.personal.phone },
+//     { icon: "🔗", label: "LinkedIn", value: "Connect with me", href: DATA.personal.linkedin },
+//     { icon: "🐙", label: "GitHub", value: "View my repositories", href: DATA.personal.github },
+//   ];
+
+//   return (
+//     <section id="contact" style={sec(t.bg)}>
+//       <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
+//         <SecHdr tag="06 / Contact" title="Let's Work Together" sub="Open to full-time roles, freelance projects, and collaborations." t={t} />
+//         <div style={{ display: "grid", gridTemplateColumns: "1fr 1.55fr", gap: "clamp(2rem,6vw,4rem)", alignItems: "start" }}>
+//           <div>
+//             <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.35rem", color: t.txt }}>Reach Out Directly</h3>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
+//               {contacts.map(({ icon, label, value, href }) => (
+//                 <a key={label} href={href} target={label === "LinkedIn" || label === "GitHub" ? "_blank" : undefined} rel="noreferrer"
+//                   style={{ display: "flex", gap: "0.9rem", alignItems: "center", background: t.sur, border: "1px solid " + t.bdr,
+//                       borderRadius: 12, padding: "0.9rem 1.1rem", transition: "all 0.25s", color: t.txt, textDecoration: "none" }}
+//                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.3)"; e.currentTarget.style.transform = "translateX(4px)"; }}
+//                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.transform = "none"; }}>
+//                   <span style={{ fontSize: "1.2rem", width: 40, height: 40, display: "flex", alignItems: "center",
+//                       justifyContent: "center", background: "rgba(0,212,255,0.08)", borderRadius: 10, flexShrink: 0 }}>{icon}</span>
+//                   <div>
+//                     <strong style={{ display: "block", fontSize: "0.83rem", fontWeight: 600, marginBottom: "0.12rem" }}>{label}</strong>
+//                     <p style={{ fontSize: "0.8rem", color: t.txt2 }}>{value}</p>
+//                   </div>
+//                 </a>
+//               ))}
+//             </div>
+//           </div>
+//           <form onSubmit={handleSubmit} noValidate
+//             style={{ display: "flex", flexDirection: "column", gap: "1.15rem", background: t.sur,
+//                 border: "1px solid " + t.bdr, borderRadius: 20, padding: "2rem", backdropFilter: "blur(8px)" }}>
+//             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.9rem" }}>
+//               <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
+//                 <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Name *</label>
+//                 <input style={inputSt(errors.name)} placeholder="Your full name" value={form.name}
+//                   onChange={(e) => { setForm((f) => ({ ...f, name: e.target.value })); setErrors((er) => ({ ...er, name: "" })); }}
+//                   onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
+//                   onBlur={(e) => { e.target.style.borderColor = errors.name ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
+//                 {errors.name && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.name}</span>}
+//               </div>
+//               <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
+//                 <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Email *</label>
+//                 <input type="email" style={inputSt(errors.email)} placeholder="your@email.com" value={form.email}
+//                   onChange={(e) => { setForm((f) => ({ ...f, email: e.target.value })); setErrors((er) => ({ ...er, email: "" })); }}
+//                   onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
+//                   onBlur={(e) => { e.target.style.borderColor = errors.email ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
+//                 {errors.email && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.email}</span>}
+//               </div>
+//             </div>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
+//               <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Subject</label>
+//               <input style={inputSt(false)} placeholder="What's this about?" value={form.subject}
+//                 onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
+//                 onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
+//                 onBlur={(e) => { e.target.style.borderColor = t.bdr; e.target.style.boxShadow = "none"; }} />
+//             </div>
+//             <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
+//               <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Message *</label>
+//               <textarea rows={5} style={{ ...inputSt(errors.message), resize: "vertical" }}
+//                 placeholder="Tell me about your project or opportunity..." value={form.message}
+//                 onChange={(e) => { setForm((f) => ({ ...f, message: e.target.value })); setErrors((er) => ({ ...er, message: "" })); }}
+//                 onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
+//                 onBlur={(e) => { e.target.style.borderColor = errors.message ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
+//               {errors.message && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.message}</span>}
+//             </div>
+//             {status === "success" && (
+//               <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 8, padding: "0.72rem 0.95rem", fontSize: "0.88rem", color: "#22c55e" }}>
+//                 ✅ Message sent! I will get back to you soon.
+//               </div>
+//             )}
+//             <button type="submit" disabled={status === "sending"}
+//               style={{ ...btnP(t), justifyContent: "center", padding: "0.82rem", width: "100%",
+//                   opacity: status === "sending" ? 0.6 : 1, cursor: status === "sending" ? "not-allowed" : "pointer" }}
+//               onMouseEnter={(e) => { if (status !== "sending") { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; } }}
+//               onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+//               {status === "sending" ? "Sending..." : "Send Message →"}
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Footer({ dark }) {
+//   const t = T(dark);
+//   return (
+//     <footer style={{ background: t.bg2, borderTop: "1px solid " + t.bdr, padding: "2.4rem 0", transition: "background 0.4s" }}>
+//       <div style={ctr()}>
+//         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.3rem", flexWrap: "wrap", gap: "1rem" }}>
+//           <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.28rem", fontWeight: 800, color: t.txt }}>
+//             <span style={{ color: t.acc, fontSize: "1.48rem" }}>V</span>ignesh<span style={{ color: t.acc }}>.</span>
+//           </div>
+//           <p style={{ fontSize: "0.88rem", color: t.txt2 }}>Building the web, one component at a time. 🚀</p>
+//         </div>
+//         <div style={{ height: 1, background: t.bdr, marginBottom: "1.3rem" }} />
+//         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
+//           <p style={{ fontSize: "0.83rem", color: t.txt3 }}>{"© " + new Date().getFullYear() + " Vignesh Goud — Crafted with ❤️ using React.js"}</p>
+//           <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+//             style={{ fontSize: "0.82rem", fontWeight: 600, color: t.acc, border: "1px solid rgba(0,212,255,0.3)",
+//                 padding: "0.38rem 0.88rem", borderRadius: 6, transition: "all 0.2s", background: "none", cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}
+//             onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.color = "#000"; }}
+//             onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = t.acc; }}>
+//             ↑ Back to Top
+//           </button>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
+// export default function Port() {
+//   const [dark, setDark] = useState(true);
+//   const t = T(dark);
+//   const scrollTo = (id) => {
+//     const el = document.getElementById(id);
+//     if (el) el.scrollIntoView({ behavior: "smooth" });
+//   };
+//   return (
+//     <>
+//       <style>{GLOBAL_CSS}</style>
+//       <div style={{ fontFamily: "'DM Sans', sans-serif", background: t.bg, color: t.txt, transition: "background 0.4s, color 0.4s" }}>
+//         <Navbar dark={dark} toggleTheme={() => setDark((d) => !d)} scrollTo={scrollTo} />
+//         <Hero dark={dark} scrollTo={scrollTo} />
+//         <About dark={dark} scrollTo={scrollTo} />
+//         <Skills dark={dark} />
+//         <Projects dark={dark} />
+//         <Experience dark={dark} />
+//         <Education dark={dark} />
+//         <Contact dark={dark} />
+//         <Footer dark={dark} />
+//       </div>
+//     </>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useEffect, useRef, useState } from "react";
 
 import Photo from "../assets/myphoto.jpg";
 import weather from "../assets/weather.jpeg";
 import canara_bank from "../assets/canara bank.jpeg";
 
-const RESUME_URL = "https://drive.google.com/file/d/1WXo_Q_cqn7ABOcb9A3qxbA1-qnPPPS0I/view";
+const RESUME_URL =
+  "https://drive.google.com/file/d/1Evjd5y8lHsTtwetUwq4baPS9_mSzPxIT/view?usp=sharing";
 
 const DATA = {
   personal: {
     name: "Vignesh Goud",
     email: "vigneshgoud12@gmail.com",
     phone: "+91 9505455721",
-    linkedin: "https://www.linkedin.com/in/vignesh-goud-8187212b6/",
-    github: "https://github.com/vigneshdev123coder?tab=repositories",
+    linkedin:
+      "https://www.linkedin.com/in/vignesh-goud-8187212b6/",
+    github:
+      "https://github.com/vigneshdev123coder?tab=repositories",
     summary:
       "Full Stack Web Developer with hands-on professional experience building scalable, secure, and client-facing web applications. Strong logical and analytical thinking with expertise in dashboard development, RESTful APIs, backend file upload systems, and MySQL database design. Proficient in React.js, JavaScript (ES6+), Node.js, and Express.js.",
   },
+
   roles: [
     "Full Stack Developer",
-    "Full Stack Engineer",
+    "Frontend Developer",
+    "Backend Developer",
     "Node.js Developer",
-    "API Architect",
-    "MySQL Expert",
+    "React.js Developer",
   ],
+
   skills: {
     "Frontend 🖥": {
-      items: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "React Hooks", "React Router"],
+      items: [
+        "React.js",
+        "JavaScript (ES6+)",
+        "HTML5",
+        "CSS3",
+        "React Hooks",
+        "React Router",
+      ],
       levels: [92, 90, 95, 88, 90, 85],
     },
+
     "Backend ⚙️": {
-      items: ["Node.js", "Express.js", "RESTful APIs", "MVC Architecture"],
+      items: [
+        "Node.js",
+        "Express.js",
+        "RESTful APIs",
+        "MVC Architecture",
+      ],
       levels: [85, 83, 88, 82],
     },
+
     "Database 🗄": {
       items: ["MySQL", "CRUD Operations"],
       levels: [82, 90],
     },
+
     "Tools 🛠": {
       items: ["Git", "GitHub", "VS Code"],
       levels: [85, 85, 95],
     },
   },
+
   projects: [
     {
       id: 1,
       color: "#00d4ff",
-      image: null, // Add your document system image here when available
+      image: null,
       title: "Full Stack Document Upload & Tracking System",
       stack: ["React", "Node.js", "MySQL"],
-      desc: "A client-facing document submission system for business service workflows with multi-document upload, status tracking, and admin verification.",
-      liveUrl: "https://full-stack-document-uploads-and-tra.vercel.app/",
-      codeUrl: "https://github.com/vigneshdev123coder/full-stack-document-uploads-and-tracking-system-project",
+      desc:
+        "A client-facing document submission system for business service workflows with multi-document upload, status tracking, and admin verification.",
+      liveUrl:
+        "https://full-stack-document-uploads-and-tra.vercel.app/",
+      codeUrl:
+        "https://github.com/vigneshdev123coder/full-stack-document-uploads-and-tracking-system-project",
       details: [
         "Built a client-facing document submission system for business service workflows.",
         "Enabled uploading multiple documents including ID proofs, forms, and receipts with status tracking.",
         "Developed backend APIs to store documents in structured folders, map metadata in MySQL, and allow admin verification.",
       ],
     },
+
     {
       id: 2,
-      color: "#7c3aed",
-      image: canara_bank,
-      title: "Banking Application",
-      stack: ["React", "React Router", "React Hooks"],
-      desc: "A simulated banking platform with authentication, transactions, and account management using React Hooks and Router for seamless navigation.",
-      liveUrl: "https://react-project-banking-app.vercel.app/",
-      codeUrl: "https://github.com/vigneshdev123coder/react-project-banking-app",
+      color: "#16a34a",
+      title: "Tekfinotax – Tax & Financial Services Platform",
+      stack: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MySQL",
+        "Tailwind CSS",
+      ],
+      desc:
+        "Worked on a business website for Tekfinotax, contributing to the development of tax, GST, accounting, and financial service features.",
+      liveUrl: "https://24hr7tekfinotax.com/",
+      codeUrl: "",
       details: [
-        "Developed a simulated banking platform supporting authentication, transactions, and account management.",
-        "Implemented React Router and reusable components for scalable navigation.",
-        "Managed application state using React Hooks for real-time updates.",
+        "Worked on developing responsive frontend pages using React.js and Tailwind CSS.",
+        "Worked with Node.js and Express.js to integrate backend APIs.",
+        "Contributed to contact forms and service-related functionality using MySQL.",
+        "Worked on responsive design and UI improvements for mobile and desktop devices.",
       ],
     },
+
     {
       id: 3,
-      color: "#f59e0b",
-      image: weather,
-      title: "Weather Application",
-      stack: ["JavaScript", "HTML5", "CSS3", "OpenWeather API"],
-      desc: "Real-time weather application with city-based search, dynamic data rendering, and a fully responsive UI.",
-      liveUrl: "https://vigneshdev123coder.github.io/weather-app-js-project/",
-      codeUrl: "https://github.com/vigneshdev123coder/weather-app-js-project",
+      color: "#2563eb",
+      title: "Nazdeek – Local Business Discovery Platform",
+      stack: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MySQL",
+        "REST API",
+      ],
+      desc:
+        "Worked on a location-based business discovery platform that helps users find nearby businesses and services through dynamic listings and category-based search.",
+      liveUrl: "https://www.nazdeek.in/",
+      codeUrl: "",
       details: [
-        "Built a real-time weather application using OpenWeather API.",
-        "Implemented city-based search with dynamic data rendering.",
-        "Designed a responsive UI using HTML, CSS, and JavaScript.",
+        "Worked on reusable React components for business listings and category sections.",
+        "Integrated and consumed REST APIs to display dynamic business data.",
+        "Contributed to search and filtering functionality for business listings.",
+        "Worked on responsive UI development and performance improvements.",
       ],
     },
   ],
+
   experience: [
     {
       role: "Software Developer",
@@ -103,141 +1283,497 @@ const DATA = {
       ],
     },
   ],
+
   education: [
     {
       degree: "B.Tech – Mechanical Engineering",
-      institution: "Brilliant Institute of Engineering and Technology",
+      institution:
+        "Brilliant Institute of Engineering and Technology",
       year: "2023",
     },
   ],
+
   certifications: [
     {
       title: "Full Stack Developer",
       issuer: "10000 Coders",
-      link: "https://drive.google.com/file/d/1XLmQZ9eYFGSRjf6Nptbxzc5_W1PoqsgP/view",
+      link:
+        "https://drive.google.com/file/d/1XLmQZ9eYFGSRjf6Nptbxzc5_W1PoqsgP/view",
     },
     {
       title: "Internship Certificate",
       issuer: "24hr7 Commerce Pvt. Ltd.",
-      link: "https://drive.google.com/file/d/13SZrPAEnj1dUx8S90u4pSx1zVsxU2zXU/view",
+      link:
+        "https://drive.google.com/file/d/13SZrPAEnj1dUx8S90u4pSx1zVsxU2zXU/view",
     },
     {
       title: "Training Certificate",
       issuer: "24hr7 Commerce Pvt. Ltd.",
-      link: "https://drive.google.com/file/d/1mE_22cG3XcKgDv04-_5Wh8dmdhHuSMOu/view",
+      link:
+        "https://drive.google.com/file/d/1mE_22cG3XcKgDv04-_5Wh8dmdhHuSMOu/view",
     },
   ],
 };
 
-const GLOBAL_CSS = [
-  "@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');",
-  "*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }",
-  "html { scroll-behavior: smooth; }",
-  "body { font-family: 'DM Sans', sans-serif; overflow-x: hidden; }",
-  "a { text-decoration: none; color: inherit; }",
-  "ul { list-style: none; }",
-  "::selection { background: #00d4ff; color: #000; }",
-  "@keyframes floatOrb { 0%,100%{ transform:translateY(0) scale(1) } 50%{ transform:translateY(-28px) scale(1.04) } }",
-  "@keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.6; transform:scale(.85) } }",
-  "@keyframes blink { 0%,100%{ opacity:1 } 50%{ opacity:0 } }",
-  "@keyframes scrollLine { 0%{ transform:scaleY(0); transform-origin:top } 50%{ transform:scaleY(1); transform-origin:top } 51%{ transform-origin:bottom } 100%{ transform:scaleY(0); transform-origin:bottom } }",
-  "@keyframes ringFloat { 0%,100%{ transform:scale(1); opacity:.5 } 50%{ transform:scale(1.03); opacity:1 } }",
-  "@keyframes fadeUp { from{ opacity:0; transform:translateY(-8px) } to{ opacity:1; transform:translateY(0) } }",
-].join("\n");
+/* =========================================================
+   GLOBAL CSS
+========================================================= */
+
+const GLOBAL_CSS = `
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --accent: #00d4ff;
+  --accent2: #7c3aed;
+  --green: #22c55e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+::selection {
+  background: #00d4ff;
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050810;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00d4ff, #7c3aed);
+  border-radius: 20px;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, -28px, 0) scale(1.05);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: .55;
+    transform: scale(.82);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  51% {
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes ringFloat {
+  0%, 100% {
+    transform: scale(1);
+    opacity: .5;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+
+  100% {
+    background-position: 500px 0;
+  }
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .about-profile {
+    order: 1;
+  }
+
+  .about-content {
+    order: 2;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-button {
+    display: flex !important;
+  }
+
+  .hero-stats {
+    gap: 1.2rem !important;
+  }
+
+  .hero-divider {
+    display: none !important;
+  }
+
+  .hero-buttons {
+    align-items: stretch !important;
+    flex-direction: column;
+  }
+
+  .hero-buttons > * {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .experience-row {
+    gap: .8rem !important;
+  }
+
+  .experience-card {
+    padding: 1.35rem !important;
+  }
+
+  .contact-form {
+    padding: 1.25rem !important;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .scroll-indicator {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.55rem !important;
+  }
+
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-stat-number {
+    font-size: 1.55rem !important;
+  }
+
+  .hero-stat-label {
+    font-size: .62rem !important;
+  }
+
+  .project-card-body {
+    padding: 1.2rem !important;
+  }
+
+  .section-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+`;
+
+/* =========================================================
+   THEME
+========================================================= */
 
 function T(dark) {
   return {
-    bg:    dark ? "#050810" : "#f5f7ff",
-    bg2:   dark ? "#0d1120" : "#eef1fb",
-    sur:   dark ? "rgba(255,255,255,0.04)" : "rgba(255,255,255,0.85)",
-    sur2:  dark ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.97)",
-    bdr:   dark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)",
-    txt:   dark ? "#f0f4ff" : "#0d1120",
-    txt2:  dark ? "#8b9ab8" : "#3d4f72",
-    txt3:  dark ? "#5a6888" : "#7a8baa",
-    navBg: dark ? "rgba(5,8,16,0.92)" : "rgba(245,247,255,0.92)",
-    acc:   "#00d4ff",
-    acc2:  "#7c3aed",
+    bg: dark ? "#050810" : "#f5f7ff",
+    bg2: dark ? "#0a0f1d" : "#edf1fb",
+
+    sur: dark
+      ? "rgba(255,255,255,0.045)"
+      : "rgba(255,255,255,0.82)",
+
+    sur2: dark
+      ? "rgba(255,255,255,0.075)"
+      : "rgba(255,255,255,0.98)",
+
+    bdr: dark
+      ? "rgba(255,255,255,0.09)"
+      : "rgba(0,0,0,0.09)",
+
+    txt: dark ? "#f4f7ff" : "#0b1020",
+    txt2: dark ? "#92a0bb" : "#45536e",
+    txt3: dark ? "#63718c" : "#7a879f",
+
+    navBg: dark
+      ? "rgba(5,8,16,0.82)"
+      : "rgba(245,247,255,0.82)",
+
+    acc: "#00d4ff",
+    acc2: "#7c3aed",
     dark,
   };
 }
+
+/* =========================================================
+   HOOKS
+========================================================= */
 
 function useTyping(words) {
   const [display, setDisplay] = useState("");
   const [wi, setWi] = useState(0);
   const [ci, setCi] = useState(0);
   const [del, setDel] = useState(false);
+
   useEffect(() => {
     const word = words[wi];
     let timer;
+
     if (!del && ci < word.length) {
-      timer = setTimeout(() => setCi((c) => c + 1), 90);
+      timer = setTimeout(
+        () => setCi((c) => c + 1),
+        75
+      );
     } else if (!del && ci === word.length) {
-      timer = setTimeout(() => setDel(true), 1900);
+      timer = setTimeout(() => setDel(true), 1800);
     } else if (del && ci > 0) {
-      timer = setTimeout(() => setCi((c) => c - 1), 45);
+      timer = setTimeout(
+        () => setCi((c) => c - 1),
+        40
+      );
     } else {
       setDel(false);
       setWi((w) => (w + 1) % words.length);
     }
+
     setDisplay(word.substring(0, ci));
+
     return () => clearTimeout(timer);
   }, [ci, del, wi, words]);
+
   return display;
 }
 
 function useReveal() {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
+
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVis(true); },
-      { threshold: 0.12 }
+    const node = ref.current;
+
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVis(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
     );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
   }, []);
+
   return [ref, vis];
 }
 
 function revealStyle(vis) {
   return {
     opacity: vis ? 1 : 0,
-    transform: vis ? "translateY(0)" : "translateY(36px)",
-    transition: "opacity 0.75s ease, transform 0.75s ease",
+    transform: vis
+      ? "translateY(0)"
+      : "translateY(28px)",
+    transition:
+      "opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1)",
   };
 }
 
+/* =========================================================
+   HELPERS
+========================================================= */
+
 function ctr() {
-  return { maxWidth: 1100, margin: "0 auto", padding: "0 clamp(1.2rem,5vw,2.5rem)" };
+  return {
+    maxWidth: 1160,
+    margin: "0 auto",
+    padding: "0 clamp(1rem,5vw,2.5rem)",
+  };
 }
 
 function sec(bg) {
-  return { padding: "clamp(4.5rem,9vw,7rem) 0", background: bg, transition: "background 0.4s" };
+  return {
+    padding: "clamp(5rem,9vw,7.5rem) 0",
+    background: bg,
+    transition: "background .4s",
+    position: "relative",
+    overflow: "hidden",
+  };
 }
 
 function btnP(t) {
   return {
-    display: "inline-flex", alignItems: "center", gap: "0.4rem",
-    padding: "0.72rem 1.6rem", background: t.acc, color: "#000",
-    fontWeight: 700, fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
-    borderRadius: 8, border: "2px solid " + t.acc, cursor: "pointer", transition: "all 0.25s",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: ".45rem",
+    padding: ".78rem 1.5rem",
+    background: t.acc,
+    color: "#000",
+    fontWeight: 700,
+    fontSize: ".88rem",
+    borderRadius: 10,
+    border: "1px solid " + t.acc,
+    cursor: "pointer",
+    transition:
+      "transform .25s, box-shadow .25s, background .25s",
   };
 }
 
 function btnS(t) {
   return {
-    display: "inline-flex", alignItems: "center", gap: "0.4rem",
-    padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
-    fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
-    borderRadius: 8, border: "2px solid " + t.bdr, background: t.sur,
-    cursor: "pointer", transition: "all 0.25s",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: ".45rem",
+    padding: ".78rem 1.5rem",
+    color: t.txt,
+    fontWeight: 600,
+    fontSize: ".88rem",
+    borderRadius: 10,
+    border: "1px solid " + t.bdr,
+    background: t.sur,
+    cursor: "pointer",
+    transition:
+      "transform .25s, border-color .25s, color .25s",
+    backdropFilter: "blur(10px)",
   };
 }
 
+/* =========================================================
+   ICONS
+========================================================= */
+
 function IconGH() {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
     </svg>
   );
@@ -245,7 +1781,12 @@ function IconGH() {
 
 function IconLI() {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
@@ -253,7 +1794,12 @@ function IconLI() {
 
 function IconEM() {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 010 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
     </svg>
   );
@@ -261,7 +1807,14 @@ function IconEM() {
 
 function IconLink() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
       <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" y1="14" x2="21" y2="3" />
@@ -271,7 +1824,12 @@ function IconLink() {
 
 function IconCode() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
       <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
     </svg>
   );
@@ -279,7 +1837,16 @@ function IconCode() {
 
 function IconDownload() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
       <polyline points="7 10 12 15 17 10" />
       <line x1="12" y1="15" x2="12" y2="3" />
@@ -287,287 +1854,1131 @@ function IconDownload() {
   );
 }
 
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
 function SecHdr({ tag, title, sub, t }) {
   return (
-    <div style={{ textAlign: "center", marginBottom: "clamp(2.5rem,5vw,4.5rem)" }}>
-      <span style={{
-        display: "inline-block", fontSize: "0.72rem", fontWeight: 600,
-        letterSpacing: "0.2em", textTransform: "uppercase", color: t.acc,
-        background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
-        padding: "0.28rem 0.9rem", borderRadius: 50, marginBottom: "0.9rem",
-      }}>
+    <div
+      style={{
+        textAlign: "center",
+        marginBottom: "clamp(2.5rem,5vw,4.5rem)",
+      }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: ".4rem",
+          fontSize: ".68rem",
+          fontWeight: 700,
+          letterSpacing: ".2em",
+          textTransform: "uppercase",
+          color: t.acc,
+          background: "rgba(0,212,255,.07)",
+          border: "1px solid rgba(0,212,255,.18)",
+          padding: ".32rem .85rem",
+          borderRadius: 50,
+          marginBottom: ".9rem",
+        }}
+      >
+        <span
+          style={{
+            width: 5,
+            height: 5,
+            borderRadius: "50%",
+            background: t.acc,
+            boxShadow: "0 0 8px " + t.acc,
+          }}
+        />
         {tag}
       </span>
-      <h2 style={{
-        fontFamily: "'Syne', sans-serif",
-        fontSize: "clamp(1.8rem,4.5vw,2.75rem)",
-        fontWeight: 800, color: t.txt, lineHeight: 1.1,
-      }}>
+
+      <h2
+        style={{
+          fontFamily: "'Syne', sans-serif",
+          fontSize: "clamp(1.9rem,4.5vw,2.85rem)",
+          fontWeight: 800,
+          color: t.txt,
+          lineHeight: 1.1,
+          letterSpacing: "-.025em",
+        }}
+      >
         {title}
       </h2>
-      {sub && <p style={{ color: t.txt2, marginTop: "0.6rem", fontSize: "0.97rem" }}>{sub}</p>}
+
+      {sub && (
+        <p
+          style={{
+            color: t.txt2,
+            marginTop: ".7rem",
+            fontSize: ".94rem",
+          }}
+        >
+          {sub}
+        </p>
+      )}
     </div>
   );
 }
 
+/* =========================================================
+   NAVBAR
+========================================================= */
+
 function Navbar({ dark, toggleTheme, scrollTo }) {
   const t = T(dark);
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 50);
+    const fn = () => setScrolled(window.scrollY > 35);
+
     window.addEventListener("scroll", fn);
+
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  const links = ["About", "Skills", "Projects", "Experience", "Education", "Contact"];
+  const links = [
+    "About",
+    "Skills",
+    "Projects",
+    "Experience",
+    "Education",
+    "Contact",
+  ];
 
   return (
-    <nav style={{
-      position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-      display: "flex", alignItems: "center", justifyContent: "space-between",
-      padding: (scrolled ? "0.8rem" : "1.2rem") + " clamp(1.2rem,5vw,2.5rem)",
-      background: scrolled ? t.navBg : "transparent",
-      backdropFilter: scrolled ? "blur(20px)" : "none",
-      borderBottom: scrolled ? "1px solid " + t.bdr : "none",
-      transition: "all 0.4s",
-    }}>
-      <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.4rem", fontWeight: 800, cursor: "pointer", color: t.txt }}>
-        <span style={{ color: t.acc, fontSize: "1.6rem" }}>V</span>ignesh<span style={{ color: t.acc }}>.</span>
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding:
+          (scrolled ? ".72rem" : "1.05rem") +
+          " clamp(1rem,5vw,2.5rem)",
+        background: scrolled
+          ? t.navBg
+          : "transparent",
+        backdropFilter: scrolled
+          ? "blur(20px)"
+          : "none",
+        WebkitBackdropFilter: scrolled
+          ? "blur(20px)"
+          : "none",
+        borderBottom: scrolled
+          ? "1px solid " + t.bdr
+          : "none",
+        transition: "all .35s ease",
+      }}
+    >
+      <div
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+        style={{
+          fontFamily: "'Syne', sans-serif",
+          fontSize: "1.38rem",
+          fontWeight: 800,
+          cursor: "pointer",
+          color: t.txt,
+          position: "relative",
+          zIndex: 1001,
+        }}
+      >
+        <span
+          style={{
+            color: t.acc,
+            fontSize: "1.6rem",
+          }}
+        >
+          V
+        </span>
+        ignesh
+        <span style={{ color: t.acc }}>.</span>
       </div>
 
-      <div style={open ? {
-        position: "fixed", top: 0, left: 0, right: 0, bottom: 0,
-        background: dark ? "rgba(5,8,16,0.97)" : "rgba(245,247,255,0.97)",
-        backdropFilter: "blur(20px)", display: "flex", flexDirection: "column",
-        alignItems: "center", justifyContent: "center", gap: "1.5rem", zIndex: 998,
-      } : { display: "flex", alignItems: "center", gap: "0.2rem" }}>
+      <div
+        className="desktop-nav"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: ".1rem",
+        }}
+      >
         {links.map((l) => (
-          <button key={l} onClick={() => { scrollTo(l.toLowerCase()); setOpen(false); }}
-            style={{ fontFamily: "'DM Sans', sans-serif", fontSize: open ? "1.25rem" : "0.88rem",
-              fontWeight: open ? 700 : 500, color: t.txt2, padding: "0.35rem 0.72rem", borderRadius: 6,
-              background: "none", border: "none", cursor: "pointer", transition: "all 0.2s" }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = t.txt; e.currentTarget.style.background = t.sur; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = t.txt2; e.currentTarget.style.background = "none"; }}>
+          <button
+            key={l}
+            onClick={() =>
+              scrollTo(l.toLowerCase())
+            }
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: ".82rem",
+              fontWeight: 600,
+              color: t.txt2,
+              padding: ".45rem .68rem",
+              borderRadius: 7,
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              transition: "all .2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = t.acc;
+              e.currentTarget.style.background =
+                "rgba(0,212,255,.06)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = t.txt2;
+              e.currentTarget.style.background =
+                "none";
+            }}
+          >
             {l}
           </button>
         ))}
-        <a href={RESUME_URL} target="_blank" rel="noreferrer"
-          style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.84rem", fontWeight: 600,
-            color: t.acc, border: "1px solid " + t.acc, padding: "0.36rem 0.9rem",
-            borderRadius: 6, background: "none", cursor: "pointer",
-            marginLeft: open ? 0 : "0.4rem", transition: "all 0.2s",
-            display: "inline-flex", alignItems: "center", gap: "0.35rem", textDecoration: "none" }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.color = "#000"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = t.acc; }}>
-          <IconDownload /> Resume
+
+        <a
+          href={RESUME_URL}
+          target="_blank"
+          rel="noreferrer"
+          style={{
+            marginLeft: ".55rem",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: ".35rem",
+            color: t.acc,
+            border: "1px solid rgba(0,212,255,.4)",
+            padding: ".42rem .82rem",
+            borderRadius: 7,
+            fontSize: ".79rem",
+            fontWeight: 700,
+            transition: "all .2s",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = t.acc;
+            e.currentTarget.style.color = "#000";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background =
+              "transparent";
+            e.currentTarget.style.color = t.acc;
+          }}
+        >
+          <IconDownload />
+          Resume
         </a>
       </div>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", zIndex: 999, position: "relative" }}>
-        <button onClick={toggleTheme} style={{ width: 34, height: 34, borderRadius: "50%", background: t.sur,
-            border: "1px solid " + t.bdr, display: "flex", alignItems: "center",
-            justifyContent: "center", fontSize: "1rem", color: t.txt2, cursor: "pointer" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: ".45rem",
+          position: "relative",
+          zIndex: 1001,
+        }}
+      >
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            background: t.sur,
+            border: "1px solid " + t.bdr,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "1rem",
+            color: t.txt2,
+            cursor: "pointer",
+            transition: "all .25s",
+          }}
+        >
           {dark ? "☀" : "◑"}
         </button>
-        <button onClick={() => setOpen((o) => !o)} style={{ display: "flex", flexDirection: "column", gap: 5,
-            width: 34, height: 34, alignItems: "center", justifyContent: "center",
-            background: "none", border: "none", cursor: "pointer", zIndex: 999 }}>
+
+        <button
+          className="mobile-menu-button"
+          onClick={() => setOpen((o) => !o)}
+          aria-label="Toggle menu"
+          style={{
+            display: "none",
+            flexDirection: "column",
+            gap: 5,
+            width: 36,
+            height: 36,
+            alignItems: "center",
+            justifyContent: "center",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
           {[0, 1, 2].map((i) => (
-            <span key={i} style={{ display: "block", width: 22, height: 2, background: t.txt2, borderRadius: 2,
-                transition: "transform 0.3s, opacity 0.3s",
-                transform: open ? i === 0 ? "translateY(7px) rotate(45deg)" : i === 2 ? "translateY(-7px) rotate(-45deg)" : "none" : "none",
-                opacity: open && i === 1 ? 0 : 1 }} />
+            <span
+              key={i}
+              style={{
+                display: "block",
+                width: 21,
+                height: 2,
+                background: t.txt2,
+                borderRadius: 2,
+                transition:
+                  "transform .3s, opacity .3s",
+                transform: open
+                  ? i === 0
+                    ? "translateY(7px) rotate(45deg)"
+                    : i === 2
+                    ? "translateY(-7px) rotate(-45deg)"
+                    : "none"
+                  : "none",
+                opacity:
+                  open && i === 1 ? 0 : 1,
+              }}
+            />
           ))}
         </button>
       </div>
+
+      {open && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: dark
+              ? "rgba(5,8,16,.97)"
+              : "rgba(245,247,255,.97)",
+            backdropFilter: "blur(25px)",
+            WebkitBackdropFilter: "blur(25px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: ".65rem",
+            zIndex: 999,
+          }}
+        >
+          {links.map((l) => (
+            <button
+              key={l}
+              onClick={() => {
+                scrollTo(l.toLowerCase());
+                setOpen(false);
+              }}
+              style={{
+                fontFamily:
+                  "'Syne', sans-serif",
+                fontSize: "1.35rem",
+                fontWeight: 700,
+                color: t.txt,
+                padding: ".6rem 1rem",
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+              }}
+            >
+              {l}
+            </button>
+          ))}
+
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              marginTop: ".8rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: ".4rem",
+              color: "#000",
+              background: t.acc,
+              padding: ".7rem 1.3rem",
+              borderRadius: 9,
+              fontWeight: 700,
+            }}
+          >
+            <IconDownload />
+            View Resume
+          </a>
+        </div>
+      )}
     </nav>
   );
 }
+
+/* =========================================================
+   HERO
+========================================================= */
 
 function Hero({ dark, scrollTo }) {
   const t = T(dark);
   const typed = useTyping(DATA.roles);
 
   return (
-    <section id="top" style={{ minHeight: "100vh", display: "flex", alignItems: "center",
-        position: "relative", overflow: "hidden", padding: "5.5rem 0 3rem", background: t.bg, transition: "background 0.4s" }}>
-      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+    <section
+      id="top"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        position: "relative",
+        overflow: "hidden",
+        padding: "6.5rem 0 4rem",
+        background: t.bg,
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+        }}
+      >
         {[
-          { w: 500, h: 500, top: "-10%", left: "-10%", color: "rgba(0,212,255,0.32)", d: 0 },
-          { w: 420, h: 420, top: "20%", right: "3%", color: "rgba(124,58,237,0.28)", d: 3 },
-          { w: 300, h: 300, bottom: "12%", left: "40%", color: "rgba(245,158,11,0.20)", d: 5 },
+          {
+            w: 520,
+            h: 520,
+            top: "-18%",
+            left: "-12%",
+            color: "rgba(0,212,255,.28)",
+            d: 0,
+          },
+          {
+            w: 440,
+            h: 440,
+            top: "15%",
+            right: "-8%",
+            color: "rgba(124,58,237,.25)",
+            d: 3,
+          },
+          {
+            w: 330,
+            h: 330,
+            bottom: "-10%",
+            left: "38%",
+            color: "rgba(245,158,11,.14)",
+            d: 5,
+          },
         ].map((o, i) => (
-          <div key={i} style={{ position: "absolute", borderRadius: "50%", filter: "blur(90px)", opacity: 0.38,
-              width: o.w, height: o.h, top: o.top, left: o.left, right: o.right, bottom: o.bottom,
-              background: "radial-gradient(circle, " + o.color + ", transparent 70%)",
-              animation: "floatOrb " + (9 + o.d) + "s ease-in-out infinite -" + o.d + "s" }} />
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              borderRadius: "50%",
+              filter: "blur(90px)",
+              width: o.w,
+              height: o.h,
+              top: o.top,
+              left: o.left,
+              right: o.right,
+              bottom: o.bottom,
+              background:
+                "radial-gradient(circle," +
+                o.color +
+                ",transparent 70%)",
+              animation:
+                "floatOrb " +
+                (9 + o.d) +
+                "s ease-in-out infinite -" +
+                o.d +
+                "s",
+            }}
+          />
         ))}
-        <div style={{ position: "absolute", inset: 0,
-            backgroundImage: "linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "60px 60px" }} />
+
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(0,212,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.025) 1px,transparent 1px)",
+            backgroundSize: "60px 60px",
+            maskImage:
+              "linear-gradient(to bottom,black,transparent 85%)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom,black,transparent 85%)",
+          }}
+        />
       </div>
 
-      <div style={{ ...ctr(), position: "relative", zIndex: 1 }}>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem",
-            fontSize: "0.79rem", fontWeight: 500, letterSpacing: "0.05em",
-            color: t.txt2, background: t.sur, border: "1px solid " + t.bdr,
-            padding: "0.38rem 1rem", borderRadius: 50, marginBottom: "1.5rem", backdropFilter: "blur(8px)" }}>
-          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#22c55e",
-              boxShadow: "0 0 8px #22c55e", animation: "pulseDot 2s infinite" }} />
+      <div
+        style={{
+          ...ctr(),
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: ".55rem",
+            fontSize: ".75rem",
+            fontWeight: 600,
+            letterSpacing: ".04em",
+            color: t.txt2,
+            background: t.sur,
+            border: "1px solid " + t.bdr,
+            padding: ".42rem .9rem",
+            borderRadius: 50,
+            marginBottom: "1.5rem",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "#22c55e",
+              boxShadow:
+                "0 0 12px rgba(34,197,94,.8)",
+              animation:
+                "pulseDot 2s infinite",
+            }}
+          />
+
           Available for opportunities
         </div>
-        <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(2.5rem,7vw,5rem)",
-            fontWeight: 800, lineHeight: 1.05, marginBottom: "0.75rem", color: t.txt }}>
-          {"Hi, I'm "}
-          <span style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+
+        <h1
+          className="hero-title"
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: "clamp(2.8rem,7vw,5.5rem)",
+            fontWeight: 800,
+            lineHeight: 1.02,
+            letterSpacing: "-.045em",
+            marginBottom: ".85rem",
+            color: t.txt,
+            maxWidth: 900,
+          }}
+        >
+          Hi, I'm{" "}
+          <span
+            style={{
+              background:
+                "linear-gradient(135deg,#00d4ff,#7c3aed 75%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Vignesh Goud
           </span>
         </h1>
-        <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(1.2rem,3.5vw,1.9rem)",
-            fontWeight: 600, color: t.txt2, marginBottom: "1.2rem", minHeight: "2.4rem" }}>
-          <span style={{ color: t.acc }}>{typed}</span>
-          <span style={{ display: "inline-block", color: t.acc, animation: "blink 1s step-end infinite", marginLeft: 2 }}>|</span>
+
+        <h2
+          style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize:
+              "clamp(1.2rem,3.5vw,1.9rem)",
+            fontWeight: 600,
+            color: t.txt2,
+            marginBottom: "1.25rem",
+            minHeight: "2.4rem",
+          }}
+        >
+          <span style={{ color: t.acc }}>
+            {typed}
+          </span>
+
+          <span
+            style={{
+              display: "inline-block",
+              color: t.acc,
+              animation:
+                "blink 1s step-end infinite",
+              marginLeft: 3,
+            }}
+          >
+            |
+          </span>
         </h2>
-        <p style={{ fontSize: "clamp(0.95rem,2vw,1.1rem)", color: t.txt2, maxWidth: 520, marginBottom: "2rem", lineHeight: 1.78 }}>
-          Building scalable, secure, and client-facing web applications with clean, maintainable architecture.
+
+        <p
+          style={{
+            fontSize:
+              "clamp(.95rem,2vw,1.08rem)",
+            color: t.txt2,
+            maxWidth: 650,
+            marginBottom: "2rem",
+            lineHeight: 1.8,
+          }}
+        >
+          Building scalable, secure, and
+          client-facing web applications with
+          clean, maintainable architecture.
         </p>
-        <div style={{ display: "flex", alignItems: "center", gap: "2rem", marginBottom: "2.2rem", flexWrap: "wrap" }}>
-          {[["1+", "Year Experience"], ["3+", "Projects Built"], ["10+", "Technologies"]].map(([num, label], i) => (
+
+        <div
+          className="hero-stats"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "2rem",
+            marginBottom: "2.25rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            ["1+", "Year Experience"],
+            ["3+", "Projects"],
+            ["10+", "Technologies"],
+          ].map(([num, label], i) => (
             <React.Fragment key={label}>
-              {i > 0 && <div style={{ width: 1, height: 38, background: t.bdr }} />}
+              {i > 0 && (
+                <div
+                  className="hero-divider"
+                  style={{
+                    width: 1,
+                    height: 38,
+                    background: t.bdr,
+                  }}
+                />
+              )}
+
               <div>
-                <span style={{ display: "block", fontFamily: "'Syne', sans-serif", fontSize: "2rem", fontWeight: 800, color: t.acc }}>{num}</span>
-                <span style={{ fontSize: "0.74rem", color: t.txt3, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</span>
+                <span
+                  className="hero-stat-number"
+                  style={{
+                    display: "block",
+                    fontFamily:
+                      "'Syne', sans-serif",
+                    fontSize: "2rem",
+                    fontWeight: 800,
+                    color: t.acc,
+                  }}
+                >
+                  {num}
+                </span>
+
+                <span
+                  className="hero-stat-label"
+                  style={{
+                    fontSize: ".7rem",
+                    color: t.txt3,
+                    textTransform:
+                      "uppercase",
+                    letterSpacing: ".08em",
+                  }}
+                >
+                  {label}
+                </span>
               </div>
             </React.Fragment>
           ))}
         </div>
-        <div style={{ display: "flex", gap: "1rem", marginBottom: "2.2rem", flexWrap: "wrap", alignItems: "center" }}>
-          <button style={btnP(t)} onClick={() => scrollTo("projects")}
-            onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
-            View My Work
+
+        <div
+          className="hero-buttons"
+          style={{
+            display: "flex",
+            gap: ".8rem",
+            marginBottom: "2.1rem",
+            flexWrap: "wrap",
+          }}
+        >
+          <button
+            style={btnP(t)}
+            onClick={() =>
+              scrollTo("projects")
+            }
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform =
+                "translateY(-3px)";
+              e.currentTarget.style.boxShadow =
+                "0 15px 35px rgba(0,212,255,.28)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform =
+                "none";
+              e.currentTarget.style.boxShadow =
+                "none";
+            }}
+          >
+            View My Work →
           </button>
-          <button style={btnS(t)} onClick={() => scrollTo("contact")}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; }}>
-            {"Let's Connect"}
+
+          <button
+            style={btnS(t)}
+            onClick={() =>
+              scrollTo("contact")
+            }
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor =
+                t.acc;
+              e.currentTarget.style.color =
+                t.acc;
+              e.currentTarget.style.transform =
+                "translateY(-3px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor =
+                t.bdr;
+              e.currentTarget.style.color =
+                t.txt;
+              e.currentTarget.style.transform =
+                "none";
+            }}
+          >
+            Let's Connect
           </button>
-          <a href={RESUME_URL} target="_blank" rel="noreferrer"
-            style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
-              padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
-              fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
-              borderRadius: 8, border: "2px solid rgba(0,212,255,0.35)",
-              background: "rgba(0,212,255,0.06)", cursor: "pointer", transition: "all 0.25s",
-              textDecoration: "none" }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.background = "rgba(0,212,255,0.12)"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.35)"; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; e.currentTarget.style.background = "rgba(0,212,255,0.06)"; }}>
-            <IconDownload /> Resume
+
+          <a
+            href={RESUME_URL}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              ...btnS(t),
+              borderColor:
+                "rgba(0,212,255,.3)",
+              background:
+                "rgba(0,212,255,.045)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor =
+                t.acc;
+              e.currentTarget.style.color =
+                t.acc;
+              e.currentTarget.style.transform =
+                "translateY(-3px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor =
+                "rgba(0,212,255,.3)";
+              e.currentTarget.style.color =
+                t.txt;
+              e.currentTarget.style.transform =
+                "none";
+            }}
+          >
+            <IconDownload />
+            Resume
           </a>
         </div>
-        <div style={{ display: "flex", gap: "0.65rem" }}>
+
+        <div
+          style={{
+            display: "flex",
+            gap: ".55rem",
+          }}
+        >
           {[
-            { Icon: IconGH, href: DATA.personal.github, label: "GitHub" },
-            { Icon: IconLI, href: DATA.personal.linkedin, label: "LinkedIn" },
-            { Icon: IconEM, href: "mailto:" + DATA.personal.email, label: "Email" },
-          ].map(({ Icon, href, label }) => (
-            <a key={label} href={href} target={label !== "Email" ? "_blank" : undefined} rel="noreferrer" aria-label={label}
-              style={{ width: 42, height: 42, display: "flex", alignItems: "center", justifyContent: "center",
-                  background: t.sur, border: "1px solid " + t.bdr, borderRadius: 10, color: t.txt2, transition: "all 0.22s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = "#000"; e.currentTarget.style.transform = "translateY(-3px)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = t.sur; e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt2; e.currentTarget.style.transform = "none"; }}>
-              <Icon />
-            </a>
-          ))}
+            {
+              Icon: IconGH,
+              href: DATA.personal.github,
+              label: "GitHub",
+            },
+            {
+              Icon: IconLI,
+              href: DATA.personal.linkedin,
+              label: "LinkedIn",
+            },
+            {
+              Icon: IconEM,
+              href:
+                "mailto:" +
+                DATA.personal.email,
+              label: "Email",
+            },
+          ].map(
+            ({ Icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={
+                  label !== "Email"
+                    ? "_blank"
+                    : undefined
+                }
+                rel="noreferrer"
+                aria-label={label}
+                style={{
+                  width: 42,
+                  height: 42,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: t.sur,
+                  border:
+                    "1px solid " + t.bdr,
+                  borderRadius: 11,
+                  color: t.txt2,
+                  transition: "all .22s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    t.acc;
+                  e.currentTarget.style.borderColor =
+                    t.acc;
+                  e.currentTarget.style.color =
+                    "#000";
+                  e.currentTarget.style.transform =
+                    "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background =
+                    t.sur;
+                  e.currentTarget.style.borderColor =
+                    t.bdr;
+                  e.currentTarget.style.color =
+                    t.txt2;
+                  e.currentTarget.style.transform =
+                    "none";
+                }}
+              >
+                <Icon />
+              </a>
+            )
+          )}
         </div>
       </div>
 
-      <div style={{ position: "absolute", bottom: "2rem", right: "2.5rem", display: "flex", flexDirection: "column",
-          alignItems: "center", gap: "0.4rem", color: t.txt3, fontSize: "0.68rem", letterSpacing: "0.12em",
-          textTransform: "uppercase", writingMode: "vertical-rl", zIndex: 1 }}>
-        <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom, " + t.acc + ", transparent)",
-            animation: "scrollLine 2.2s ease-in-out infinite" }} />
+      <div
+        className="scroll-indicator"
+        style={{
+          position: "absolute",
+          bottom: "2rem",
+          right: "2.5rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: ".4rem",
+          color: t.txt3,
+          fontSize: ".64rem",
+          letterSpacing: ".14em",
+          textTransform: "uppercase",
+          writingMode: "vertical-rl",
+        }}
+      >
+        <div
+          style={{
+            width: 1,
+            height: 48,
+            background:
+              "linear-gradient(to bottom," +
+              t.acc +
+              ",transparent)",
+            animation:
+              "scrollLine 2.2s ease-in-out infinite",
+          }}
+        />
+
         <span>Scroll</span>
       </div>
     </section>
   );
 }
 
+/* =========================================================
+   ABOUT
+========================================================= */
+
 function About({ dark, scrollTo }) {
   const t = T(dark);
   const [ref, vis] = useReveal();
+
   return (
     <section id="about" style={sec(t.bg2)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="01 / About" title="Who Am I" t={t} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.65fr", gap: "clamp(2rem,6vw,5rem)", alignItems: "start" }}>
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
-            <div style={{ position: "relative", width: 200, height: 200 }}>
-              <div style={{ width: "100%", height: "100%", borderRadius: 28,
-                  overflow: "hidden", position: "relative", zIndex: 1,
-                  boxShadow: "0 20px 60px rgba(0,212,255,0.28)",
-                  border: "3px solid rgba(0,212,255,0.35)" }}>
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="01 / About"
+          title="Who Am I"
+          t={t}
+        />
+
+        <div
+          className="about-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "minmax(240px,.8fr) minmax(0,1.65fr)",
+            gap: "clamp(2.5rem,7vw,6rem)",
+            alignItems: "center",
+          }}
+        >
+          <div
+            className="about-profile"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1.4rem",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                width: 210,
+                height: 210,
+              }}
+            >
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: 32,
+                  overflow: "hidden",
+                  position: "relative",
+                  zIndex: 1,
+                  boxShadow:
+                    "0 25px 70px rgba(0,212,255,.18)",
+                  border:
+                    "2px solid rgba(0,212,255,.35)",
+                  background: t.sur,
+                }}
+              >
                 <img
                   src={Photo}
                   alt="Vignesh Goud"
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center", display: "block" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition:
+                      "top center",
+                    display: "block",
+                  }}
                 />
               </div>
-              {[{ i: -12, d: "0s", o: 1 }, { i: -24, d: "-2s", o: 0.5 }].map(({ i, d, o }) => (
-                <div key={i} style={{ position: "absolute", top: i, left: i, right: i, bottom: i,
-                    borderRadius: 38, border: "1px solid rgba(0,212,255,0.18)",
-                    animation: "ringFloat 4s ease-in-out infinite " + d, opacity: o }} />
-              ))}
+
+              {[
+                {
+                  i: -12,
+                  d: "0s",
+                  o: 1,
+                },
+                {
+                  i: -24,
+                  d: "-2s",
+                  o: 0.45,
+                },
+              ].map(
+                ({ i, d, o }) => (
+                  <div
+                    key={i}
+                    style={{
+                      position:
+                        "absolute",
+                      top: i,
+                      left: i,
+                      right: i,
+                      bottom: i,
+                      borderRadius: 40,
+                      border:
+                        "1px solid rgba(0,212,255,.17)",
+                      animation:
+                        "ringFloat 4s ease-in-out infinite " +
+                        d,
+                      opacity: o,
+                    }}
+                  />
+                )
+              )}
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.45rem", justifyContent: "center" }}>
-              {["⚡ React.js", "🔧 Node.js", "🗄 MySQL", "🚀 REST APIs", "💳 Razorpay", "🛠 Express.js"].map((c) => (
-                <span key={c} style={{ fontSize: "0.78rem", fontWeight: 500, padding: "0.28rem 0.7rem",
-                    background: t.sur2, border: "1px solid " + t.bdr, borderRadius: 50, color: t.txt2 }}>{c}</span>
+
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: ".45rem",
+                justifyContent: "center",
+              }}
+            >
+              {[
+                "⚡ React.js",
+                "🔧 Node.js",
+                "🗄 MySQL",
+                "🚀 REST APIs",
+                "💳 Razorpay",
+                "🛠 Express.js",
+              ].map((c) => (
+                <span
+                  key={c}
+                  style={{
+                    fontSize: ".75rem",
+                    fontWeight: 600,
+                    padding:
+                      ".3rem .68rem",
+                    background: t.sur2,
+                    border:
+                      "1px solid " + t.bdr,
+                    borderRadius: 50,
+                    color: t.txt2,
+                  }}
+                >
+                  {c}
+                </span>
               ))}
             </div>
           </div>
-          <div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.35rem", fontWeight: 700, marginBottom: "0.9rem", color: t.txt }}>
-              Full Stack Developer based in India
+
+          <div className="about-content">
+            <h3
+              style={{
+                fontFamily:
+                  "'Syne', sans-serif",
+                fontSize: "1.45rem",
+                fontWeight: 700,
+                marginBottom: ".9rem",
+                color: t.txt,
+              }}
+            >
+              Full Stack Developer
+              based in India
             </h3>
-            <p style={{ color: t.txt2, lineHeight: 1.82, marginBottom: "1.8rem", fontSize: "0.97rem" }}>
+
+            <p
+              style={{
+                color: t.txt2,
+                lineHeight: 1.85,
+                marginBottom: "1.7rem",
+                fontSize: ".95rem",
+              }}
+            >
               {DATA.personal.summary}
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem", marginBottom: "1.8rem" }}>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                marginBottom: "1.8rem",
+              }}
+            >
               {[
-                { icon: "🎯", strong: "Focus Areas", p: "Dashboard development, RESTful APIs, backend file systems, MySQL design" },
-                { icon: "💼", strong: "Current Role", p: "Software Developer at 24hr7 Commerce Pvt. Ltd." },
-                { icon: "🎓", strong: "Background", p: "B.Tech Mechanical Engineering turned Full Stack Developer" },
-                { icon: "📍", strong: "Location", p: "India — open to remote & on-site opportunities" },
-              ].map(({ icon, strong, p }) => (
-                <div key={strong} style={{ display: "flex", gap: "0.9rem", alignItems: "flex-start" }}>
-                  <span style={{ fontSize: "1.2rem", flexShrink: 0, marginTop: "0.1rem" }}>{icon}</span>
-                  <div>
-                    <strong style={{ display: "block", fontSize: "0.88rem", fontWeight: 600, color: t.txt, marginBottom: "0.2rem" }}>{strong}</strong>
-                    <p style={{ fontSize: "0.85rem", color: t.txt2 }}>{p}</p>
+                {
+                  icon: "🎯",
+                  strong: "Focus Areas",
+                  p:
+                    "Dashboard development, RESTful APIs, backend file systems, MySQL design",
+                },
+                {
+                  icon: "💼",
+                  strong: "Current Role",
+                  p:
+                    "Software Developer at 24hr7 Commerce Pvt. Ltd.",
+                },
+                {
+                  icon: "🎓",
+                  strong: "Background",
+                  p:
+                    "B.Tech Mechanical Engineering turned Full Stack Developer",
+                },
+                {
+                  icon: "📍",
+                  strong: "Location",
+                  p:
+                    "India — open to remote & on-site opportunities",
+                },
+              ].map(
+                ({ icon, strong, p }) => (
+                  <div
+                    key={strong}
+                    style={{
+                      display: "flex",
+                      gap: ".85rem",
+                      alignItems:
+                        "flex-start",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: 34,
+                        height: 34,
+                        display: "flex",
+                        alignItems:
+                          "center",
+                        justifyContent:
+                          "center",
+                        background:
+                          "rgba(0,212,255,.07)",
+                        border:
+                          "1px solid rgba(0,212,255,.13)",
+                        borderRadius: 9,
+                        flexShrink: 0,
+                        fontSize: ".95rem",
+                      }}
+                    >
+                      {icon}
+                    </span>
+
+                    <div>
+                      <strong
+                        style={{
+                          display: "block",
+                          fontSize: ".86rem",
+                          fontWeight: 700,
+                          color: t.txt,
+                          marginBottom:
+                            ".15rem",
+                        }}
+                      >
+                        {strong}
+                      </strong>
+
+                      <p
+                        style={{
+                          fontSize: ".83rem",
+                          color: t.txt2,
+                          lineHeight: 1.55,
+                        }}
+                      >
+                        {p}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
-            <div style={{ display: "flex", gap: "0.85rem", flexWrap: "wrap" }}>
-              <button style={btnP(t)} onClick={() => scrollTo("contact")}
-                onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
+
+            <div
+              style={{
+                display: "flex",
+                gap: ".75rem",
+                flexWrap: "wrap",
+              }}
+            >
+              <button
+                style={btnP(t)}
+                onClick={() =>
+                  scrollTo("contact")
+                }
+              >
                 Get In Touch →
               </button>
-              <a href={RESUME_URL} target="_blank" rel="noreferrer"
-                style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem",
-                  padding: "0.72rem 1.6rem", color: t.txt, fontWeight: 600,
-                  fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem",
-                  borderRadius: 8, border: "2px solid " + t.bdr, background: t.sur,
-                  cursor: "pointer", transition: "all 0.25s", textDecoration: "none" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = t.acc; e.currentTarget.style.color = t.acc; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.color = t.txt; e.currentTarget.style.transform = "none"; }}>
-                <IconDownload /> View Resume
+
+              <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noreferrer"
+                style={btnS(t)}
+              >
+                <IconDownload />
+                View Resume
               </a>
             </div>
           </div>
@@ -577,74 +2988,275 @@ function About({ dark, scrollTo }) {
   );
 }
 
+/* =========================================================
+   SKILLS
+========================================================= */
+
 function Skills({ dark }) {
   const t = T(dark);
   const [ref, vis] = useReveal();
+
   return (
     <section id="skills" style={sec(t.bg)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="02 / Skills" title="Technical Arsenal" t={t} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(255px, 1fr))", gap: "1.4rem" }}>
-          {Object.entries(DATA.skills).map(([cat, { items, levels }]) => (
-            <div key={cat} style={{ background: t.sur, border: "1px solid " + t.bdr, borderRadius: 16,
-                padding: "1.75rem", transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s", backdropFilter: "blur(8px)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-6px)"; e.currentTarget.style.borderColor = "rgba(0,212,255,0.3)"; e.currentTarget.style.boxShadow = "0 20px 60px rgba(0,0,0,0.4)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.boxShadow = "none"; }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.7rem", marginBottom: "1.4rem" }}>
-                <span style={{ fontSize: "1.45rem" }}>{cat.split(" ")[1] || ""}</span>
-                <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt }}>{cat.split(" ")[0]}</h3>
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="02 / Skills"
+          title="Technical Arsenal"
+          sub="Technologies and tools I work with."
+          t={t}
+        />
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit,minmax(260px,1fr))",
+            gap: "1.15rem",
+          }}
+        >
+          {Object.entries(
+            DATA.skills
+          ).map(
+            ([cat, { items, levels }]) => (
+              <div
+                key={cat}
+                style={{
+                  position: "relative",
+                  background: t.sur,
+                  border:
+                    "1px solid " + t.bdr,
+                  borderRadius: 18,
+                  padding: "1.55rem",
+                  overflow: "hidden",
+                  backdropFilter:
+                    "blur(12px)",
+                  transition:
+                    "transform .3s, border-color .3s, box-shadow .3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "translateY(-7px)";
+                  e.currentTarget.style.borderColor =
+                    "rgba(0,212,255,.3)";
+                  e.currentTarget.style.boxShadow =
+                    "0 25px 70px rgba(0,0,0,.25)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "none";
+                  e.currentTarget.style.borderColor =
+                    t.bdr;
+                  e.currentTarget.style.boxShadow =
+                    "none";
+                }}
+              >
+                <div
+                  style={{
+                    position:
+                      "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 2,
+                    background:
+                      "linear-gradient(90deg,#00d4ff,#7c3aed,transparent)",
+                  }}
+                />
+
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems:
+                      "center",
+                    gap: ".7rem",
+                    marginBottom:
+                      "1.35rem",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: 38,
+                      height: 38,
+                      display: "flex",
+                      alignItems:
+                        "center",
+                      justifyContent:
+                        "center",
+                      background:
+                        "rgba(0,212,255,.08)",
+                      border:
+                        "1px solid rgba(0,212,255,.15)",
+                      borderRadius: 10,
+                      fontSize:
+                        "1.15rem",
+                    }}
+                  >
+                    {cat.split(" ")[1]}
+                  </span>
+
+                  <h3
+                    style={{
+                      fontFamily:
+                        "'Syne', sans-serif",
+                      fontSize:
+                        "1rem",
+                      fontWeight: 700,
+                      color: t.txt,
+                    }}
+                  >
+                    {cat.split(" ")[0]}
+                  </h3>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection:
+                      "column",
+                    gap: ".85rem",
+                  }}
+                >
+                  {items.map(
+                    (skill, i) => (
+                      <div key={skill}>
+                        <div
+                          style={{
+                            display:
+                              "flex",
+                            justifyContent:
+                              "space-between",
+                            fontSize:
+                              ".8rem",
+                            color:
+                              t.txt2,
+                            marginBottom:
+                              ".32rem",
+                          }}
+                        >
+                          <span>
+                            {skill}
+                          </span>
+
+                          <span
+                            style={{
+                              fontSize:
+                                ".68rem",
+                              color:
+                                t.acc,
+                              fontWeight:
+                                700,
+                            }}
+                          >
+                            {levels[i]}%
+                          </span>
+                        </div>
+
+                        <div
+                          style={{
+                            height: 5,
+                            background:
+                              t.bdr,
+                            borderRadius: 10,
+                            overflow:
+                              "hidden",
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: "100%",
+                              background:
+                                "linear-gradient(90deg,#00d4ff,#7c3aed)",
+                              borderRadius:
+                                10,
+                              width: vis
+                                ? levels[i] +
+                                  "%"
+                                : "0%",
+                              transition:
+                                "width 1.2s cubic-bezier(.4,0,.2,1) " +
+                                i * 0.07 +
+                                "s",
+                            }}
+                          />
+                        </div>
+                      </div>
+                    )
+                  )}
+                </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-                {items.map((skill, i) => (
-                  <div key={skill}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: t.txt2, marginBottom: "0.3rem" }}>
-                      <span>{skill}</span>
-                      <span style={{ fontSize: "0.73rem", color: t.acc, fontWeight: 600 }}>{levels[i]}%</span>
-                    </div>
-                    <div style={{ height: 4, background: t.bdr, borderRadius: 4, overflow: "hidden" }}>
-                      <div style={{ height: "100%", background: "linear-gradient(90deg, #00d4ff, #7c3aed)", borderRadius: 4,
-                          width: vis ? levels[i] + "%" : "0%", transition: "width 1.3s cubic-bezier(0.4,0,0.2,1) " + (i * 0.06) + "s" }} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </section>
   );
 }
 
-// ─── Updated ProjCard with background image support ───────────────────────────
-function ProjCard({ project, index, dark }) {
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+function ProjCard({
+  project,
+  index,
+  dark,
+}) {
   const t = T(dark);
+
   const [ref, vis] = useReveal();
-  const [expanded, setExpanded] = useState(false);
-  const [hovered, setHovered] = useState(false);
+  const [expanded, setExpanded] =
+    useState(false);
+  const [hovered, setHovered] =
+    useState(false);
 
   return (
     <div
       ref={ref}
       style={{
         background: t.sur,
-        border: "1px solid " + (hovered ? "rgba(0,212,255,0.3)" : t.bdr),
+        border:
+          "1px solid " +
+          (hovered
+            ? "rgba(0,212,255,.3)"
+            : t.bdr),
         borderRadius: 20,
         overflow: "hidden",
         position: "relative",
-        backdropFilter: "blur(8px)",
-        transition: "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s",
-        transform: vis ? (hovered ? "translateY(-8px)" : "translateY(0)") : "translateY(36px)",
+        backdropFilter: "blur(12px)",
+        transition:
+          "transform .35s ease, box-shadow .35s ease, border-color .35s",
+        transform: vis
+          ? hovered
+            ? "translateY(-9px)"
+            : "translateY(0)"
+          : "translateY(30px)",
         opacity: vis ? 1 : 0,
         boxShadow: hovered
-          ? "0 25px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.18)"
+          ? "0 30px 70px rgba(0,0,0,.3)"
           : "none",
       }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() =>
+        setHovered(true)
+      }
+      onMouseLeave={() =>
+        setHovered(false)
+      }
     >
-      {/* ── Background Image / Fallback Pattern ── */}
-      <div style={{ width: "100%", height: 185, overflow: "hidden", position: "relative" }}>
+      <div
+        style={{
+          width: "100%",
+          height: 190,
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
         {project.image ? (
           <img
             src={project.image}
@@ -653,248 +3265,1066 @@ function ProjCard({ project, index, dark }) {
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "center",
-              display: "block",
-              transition: "transform 0.5s ease",
-              transform: hovered ? "scale(1.07)" : "scale(1)",
+              transition:
+                "transform .55s ease",
+              transform: hovered
+                ? "scale(1.07)"
+                : "scale(1)",
             }}
           />
         ) : (
-          // Animated fallback for Document Upload project
-          <div style={{
-            width: "100%", height: "100%",
-            background: "linear-gradient(135deg, #060c1a 0%, #0a1628 50%, #060c1a 100%)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            position: "relative", overflow: "hidden",
-          }}>
-            {/* Grid lines */}
-            <div style={{
-              position: "absolute", inset: 0,
-              backgroundImage: "linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px)",
-              backgroundSize: "28px 28px",
-            }} />
-            {/* Glowing orb */}
-            <div style={{
-              position: "absolute", width: 180, height: 180, borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(0,212,255,0.25), transparent 70%)",
-              filter: "blur(35px)",
-            }} />
-            {/* Floating doc icons */}
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              background:
+                "linear-gradient(135deg,#050a17,#0b172b,#050a17)",
+              display: "flex",
+              alignItems:
+                "center",
+              justifyContent:
+                "center",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backgroundImage:
+                  "linear-gradient(rgba(0,212,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.07) 1px,transparent 1px)",
+                backgroundSize:
+                  "28px 28px",
+              }}
+            />
+
+            <div
+              style={{
+                position:
+                  "absolute",
+                width: 190,
+                height: 190,
+                borderRadius: "50%",
+                background:
+                  "radial-gradient(circle,rgba(0,212,255,.25),transparent 70%)",
+                filter:
+                  "blur(30px)",
+              }}
+            />
+
             {[
-              { top: "18%", left: "15%", icon: "📄", size: "1.6rem", delay: "0s" },
-              { top: "55%", left: "72%", icon: "📋", size: "1.3rem", delay: "1.2s" },
-              { top: "25%", left: "68%", icon: "✅", size: "1.1rem", delay: "0.6s" },
-              { top: "65%", left: "22%", icon: "🗂️", size: "1.2rem", delay: "1.8s" },
-            ].map((el, i) => (
-              <span key={i} style={{
-                position: "absolute", top: el.top, left: el.left, fontSize: el.size,
-                opacity: 0.55, animation: `floatOrb 6s ease-in-out infinite -${el.delay}`,
-              }}>{el.icon}</span>
-            ))}
-            {/* Center icon */}
-            <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
-              <span style={{ fontSize: "3rem", display: "block" }}>📁</span>
-              <span style={{ fontSize: "0.7rem", color: "rgba(0,212,255,0.7)", fontWeight: 600,
-                  letterSpacing: "0.12em", textTransform: "uppercase", marginTop: "0.3rem", display: "block" }}>
-                Doc System
+              ["18%", "15%", "📄"],
+              ["55%", "72%", "📋"],
+              ["25%", "68%", "✅"],
+              ["65%", "22%", "🗂️"],
+            ].map(
+              ([top, left, icon], i) => (
+                <span
+                  key={i}
+                  style={{
+                    position:
+                      "absolute",
+                    top,
+                    left,
+                    fontSize:
+                      i === 0
+                        ? "1.6rem"
+                        : "1.2rem",
+                    opacity: .55,
+                    animation:
+                      "floatOrb 6s ease-in-out infinite -" +
+                      i * 0.6 +
+                      "s",
+                  }}
+                >
+                  {icon}
+                </span>
+              )
+            )}
+
+            <div
+              style={{
+                position:
+                  "relative",
+                zIndex: 1,
+                textAlign:
+                  "center",
+              }}
+            >
+              <span
+                style={{
+                  fontSize:
+                    "3rem",
+                  display:
+                    "block",
+                }}
+              >
+                📁
+              </span>
+
+              <span
+                style={{
+                  fontSize:
+                    ".66rem",
+                  color:
+                    "rgba(0,212,255,.72)",
+                  fontWeight: 700,
+                  letterSpacing:
+                    ".14em",
+                  textTransform:
+                    "uppercase",
+                }}
+              >
+                Document System
               </span>
             </div>
           </div>
         )}
 
-        {/* Gradient overlay fading into card body */}
-        <div style={{
-          position: "absolute", bottom: 0, left: 0, right: 0, height: "60%",
-          background: `linear-gradient(to top, ${dark ? "#0d1120" : "#ffffff"} 0%, transparent 100%)`,
-          pointerEvents: "none",
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to top," +
+              (dark
+                ? "#0a0f1d"
+                : "#ffffff") +
+              " 0%,transparent 75%)",
+          }}
+        />
 
-        {/* Top accent bar */}
-        <div style={{
-          position: "absolute", top: 0, left: 0, right: 0, height: 3,
-          background: "linear-gradient(90deg, " + project.color + ", transparent)",
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 3,
+            background:
+              "linear-gradient(90deg," +
+              project.color +
+              ",transparent)",
+          }}
+        />
 
-        {/* Live / Code buttons overlaid on image top-right */}
-        <div style={{
-          position: "absolute", top: "0.75rem", right: "0.75rem",
-          display: "flex", gap: "0.4rem", zIndex: 2,
-        }}>
-          {[
-            { Icon: IconLink, label: "Live", href: project.liveUrl, hBg: t.acc, hClr: "#000" },
-            { Icon: IconCode, label: "Code", href: project.codeUrl, hBg: t.txt, hClr: t.bg },
-          ].map(({ Icon, label, href, hBg, hClr }) => (
-            <a key={label} href={href} target="_blank" rel="noreferrer"
+        {/* =================================================
+            CONDITIONAL PROJECT BUTTONS
+            Project 2 & 3 have no Code button
+        ================================================== */}
+
+        <div
+          style={{
+            position: "absolute",
+            top: ".75rem",
+            right: ".75rem",
+            display: "flex",
+            gap: ".4rem",
+            zIndex: 2,
+          }}
+        >
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noreferrer"
               style={{
-                display: "inline-flex", alignItems: "center", gap: "0.28rem",
-                fontSize: "0.76rem", fontWeight: 600, padding: "0.26rem 0.65rem",
-                borderRadius: 6, border: "1px solid rgba(255,255,255,0.2)",
-                color: "#fff", background: "rgba(0,0,0,0.55)",
-                backdropFilter: "blur(8px)", transition: "all 0.2s", textDecoration: "none",
+                display:
+                  "inline-flex",
+                alignItems:
+                  "center",
+                gap: ".28rem",
+                fontSize:
+                  ".73rem",
+                fontWeight: 700,
+                padding:
+                  ".28rem .68rem",
+                borderRadius: 7,
+                border:
+                  "1px solid rgba(255,255,255,.2)",
+                color: "#fff",
+                background:
+                  "rgba(0,0,0,.55)",
+                backdropFilter:
+                  "blur(10px)",
+                transition:
+                  "all .2s",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = hBg; e.currentTarget.style.borderColor = hBg; e.currentTarget.style.color = hClr; }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,0,0,0.55)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "#fff"; }}>
-              <Icon /> {label}
+              onMouseEnter={(
+                e
+              ) => {
+                e.currentTarget.style.background =
+                  t.acc;
+                e.currentTarget.style.borderColor =
+                  t.acc;
+                e.currentTarget.style.color =
+                  "#000";
+              }}
+              onMouseLeave={(
+                e
+              ) => {
+                e.currentTarget.style.background =
+                  "rgba(0,0,0,.55)";
+                e.currentTarget.style.borderColor =
+                  "rgba(255,255,255,.2)";
+                e.currentTarget.style.color =
+                  "#fff";
+              }}
+            >
+              <IconLink />
+              Live
             </a>
-          ))}
+          )}
+
+          {project.codeUrl && (
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display:
+                  "inline-flex",
+                alignItems:
+                  "center",
+                gap: ".28rem",
+                fontSize:
+                  ".73rem",
+                fontWeight: 700,
+                padding:
+                  ".28rem .68rem",
+                borderRadius: 7,
+                border:
+                  "1px solid rgba(255,255,255,.2)",
+                color: "#fff",
+                background:
+                  "rgba(0,0,0,.55)",
+                backdropFilter:
+                  "blur(10px)",
+                transition:
+                  "all .2s",
+              }}
+              onMouseEnter={(
+                e
+              ) => {
+                e.currentTarget.style.background =
+                  t.txt;
+                e.currentTarget.style.borderColor =
+                  t.txt;
+                e.currentTarget.style.color =
+                  t.bg;
+              }}
+              onMouseLeave={(
+                e
+              ) => {
+                e.currentTarget.style.background =
+                  "rgba(0,0,0,.55)";
+                e.currentTarget.style.borderColor =
+                  "rgba(255,255,255,.2)";
+                e.currentTarget.style.color =
+                  "#fff";
+              }}
+            >
+              <IconCode />
+              Code
+            </a>
+          )}
         </div>
       </div>
 
-      {/* ── Card Body ── */}
-      <div style={{ padding: "1.25rem 1.85rem 1.85rem" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.8rem" }}>
-          <span style={{ fontFamily: "'Syne', sans-serif", fontSize: "2.2rem", fontWeight: 800, color: t.bdr, lineHeight: 1 }}>
+      <div
+        className="project-card-body"
+        style={{
+          padding:
+            "1.25rem 1.55rem 1.65rem",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent:
+              "space-between",
+            alignItems:
+              "center",
+            marginBottom:
+              ".75rem",
+          }}
+        >
+          <span
+            style={{
+              fontFamily:
+                "'Syne', sans-serif",
+              fontSize:
+                "2rem",
+              fontWeight: 800,
+              color: t.bdr,
+            }}
+          >
             0{index + 1}
           </span>
+
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius:
+                "50%",
+              background:
+                project.color,
+              boxShadow:
+                "0 0 12px " +
+                project.color,
+            }}
+          />
         </div>
 
-        <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700,
-            marginBottom: "0.65rem", color: t.txt, lineHeight: 1.3 }}>
+        <h3
+          style={{
+            fontFamily:
+              "'Syne', sans-serif",
+            fontSize:
+              "1.12rem",
+            fontWeight: 700,
+            marginBottom:
+              ".65rem",
+            color: t.txt,
+            lineHeight: 1.35,
+          }}
+        >
           {project.title}
         </h3>
-        <p style={{ fontSize: "0.88rem", color: t.txt2, lineHeight: 1.72, marginBottom: "1.1rem" }}>
+
+        <p
+          style={{
+            fontSize:
+              ".86rem",
+            color: t.txt2,
+            lineHeight: 1.75,
+            marginBottom:
+              "1rem",
+          }}
+        >
           {project.desc}
         </p>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "0.38rem", marginBottom: "1rem" }}>
-          {project.stack.map((s) => (
-            <span key={s} style={{
-              fontSize: "0.73rem", fontWeight: 600, padding: "0.22rem 0.58rem",
-              background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
-              color: t.acc, borderRadius: 5,
-            }}>{s}</span>
-          ))}
+        <div
+          style={{
+            display: "flex",
+            flexWrap:
+              "wrap",
+            gap: ".35rem",
+            marginBottom:
+              "1rem",
+          }}
+        >
+          {project.stack.map(
+            (s) => (
+              <span
+                key={s}
+                style={{
+                  fontSize:
+                    ".7rem",
+                  fontWeight:
+                    600,
+                  padding:
+                    ".24rem .55rem",
+                  background:
+                    "rgba(0,212,255,.07)",
+                  border:
+                    "1px solid rgba(0,212,255,.17)",
+                  color:
+                    t.acc,
+                  borderRadius:
+                    6,
+                }}
+              >
+                {s}
+              </span>
+            )
+          )}
         </div>
 
         {expanded && (
-          <ul style={{ display: "flex", flexDirection: "column", gap: "0.48rem",
-              borderTop: "1px solid " + t.bdr, paddingTop: "0.9rem",
-              marginBottom: "0.7rem", animation: "fadeUp 0.3s ease" }}>
-            {project.details.map((detail, i) => (
-              <li key={i} style={{ display: "flex", gap: "0.5rem", fontSize: "0.84rem", color: t.txt2, lineHeight: 1.65 }}>
-                <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.72rem", marginTop: "0.2rem" }}>▸</span>
-                {detail}
-              </li>
-            ))}
+          <ul
+            style={{
+              display: "flex",
+              flexDirection:
+                "column",
+              gap: ".5rem",
+              borderTop:
+                "1px solid " +
+                t.bdr,
+              paddingTop:
+                ".9rem",
+              marginBottom:
+                ".7rem",
+              animation:
+                "fadeUp .3s ease",
+            }}
+          >
+            {project.details.map(
+              (detail, i) => (
+                <li
+                  key={i}
+                  style={{
+                    display:
+                      "flex",
+                    gap: ".5rem",
+                    fontSize:
+                      ".81rem",
+                    color:
+                      t.txt2,
+                    lineHeight:
+                      1.65,
+                  }}
+                >
+                  <span
+                    style={{
+                      color:
+                        t.acc,
+                      flexShrink:
+                        0,
+                    }}
+                  >
+                    ▸
+                  </span>
+
+                  {detail}
+                </li>
+              )
+            )}
           </ul>
         )}
 
-        <button onClick={() => setExpanded((e) => !e)}
-          style={{ fontSize: "0.8rem", fontWeight: 600, color: t.acc,
-              background: "none", border: "none", cursor: "pointer",
-              fontFamily: "'DM Sans', sans-serif", padding: 0 }}>
-          {expanded ? "Show Less ↑" : "More Details ↓"}
+        <button
+          onClick={() =>
+            setExpanded(
+              (e) => !e
+            )
+          }
+          style={{
+            fontSize:
+              ".78rem",
+            fontWeight:
+              700,
+            color:
+              t.acc,
+            background:
+              "none",
+            border: "none",
+            cursor:
+              "pointer",
+            fontFamily:
+              "'DM Sans', sans-serif",
+            padding: 0,
+          }}
+        >
+          {expanded
+            ? "Show Less ↑"
+            : "More Details ↓"}
         </button>
       </div>
     </div>
   );
 }
 
+/* =========================================================
+   PROJECTS
+========================================================= */
+
 function Projects({ dark }) {
   const t = T(dark);
-  const [ref, vis] = useReveal();
+  const [ref, vis] =
+    useReveal();
+
   return (
-    <section id="projects" style={sec(t.bg2)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="03 / Projects" title="Featured Work" t={t} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(310px, 1fr))", gap: "1.75rem" }}>
-          {DATA.projects.map((p, i) => <ProjCard key={p.id} project={p} index={i} dark={dark} />)}
+    <section
+      id="projects"
+      style={sec(t.bg2)}
+    >
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="03 / Projects"
+          title="Featured Work"
+          sub="A selection of projects I've built and contributed to."
+          t={t}
+        />
+
+        <div
+          className="project-grid"
+          
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "repeat(auto-fit,minmax(310px,1fr))",
+            gap: "1.35rem",
+          }}
+        >
+          {DATA.projects.map(
+            (p, i) => (
+              <ProjCard
+                key={p.id}
+                project={p}
+                index={i}
+                dark={dark}
+              />
+            )
+          )}
         </div>
       </div>
     </section>
   );
 }
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
 
 function Experience({ dark }) {
   const t = T(dark);
-  const [ref, vis] = useReveal();
+  const [ref, vis] =
+    useReveal();
+
   return (
-    <section id="experience" style={sec(t.bg)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="04 / Experience" title="Work History" t={t} />
-        <div style={{ maxWidth: 820, margin: "0 auto" }}>
-          {DATA.experience.map((exp, i) => (
-            <div key={i} style={{ display: "flex", gap: "1.4rem" }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
-                <div style={{ width: 13, height: 13, borderRadius: "50%", background: t.acc, border: "2px solid " + t.acc,
-                    boxShadow: "0 0 12px rgba(0,212,255,0.55)", flexShrink: 0, marginTop: 5 }} />
-                <div style={{ flex: 1, width: 2, background: t.bdr, margin: "4px 0" }} />
-              </div>
-              <div style={{ flex: 1, background: t.sur, border: "1px solid " + t.bdr, borderRadius: 16, padding: "1.7rem 1.9rem", marginBottom: "2rem", transition: "border-color 0.3s" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.2rem", gap: "1rem", flexWrap: "wrap" }}>
-                  <div>
-                    <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.15rem", fontWeight: 700, color: t.txt, marginBottom: "0.22rem" }}>{exp.role}</div>
-                    <div style={{ fontSize: "0.88rem", color: t.acc, fontWeight: 500 }}>{exp.company}</div>
-                  </div>
-                  <span style={{ fontSize: "0.78rem", color: "#22c55e", background: t.sur2, padding: "0.28rem 0.72rem",
-                      borderRadius: 50, display: "flex", alignItems: "center", gap: "0.38rem", fontWeight: 500, whiteSpace: "nowrap" }}>
-                    <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 6px #22c55e", animation: "pulseDot 2s infinite" }} />
-                    {exp.period}
-                  </span>
+    <section
+      id="experience"
+      style={sec(t.bg)}
+    >
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="04 / Experience"
+          title="Work History"
+          t={t}
+        />
+
+        <div
+          style={{
+            maxWidth: 850,
+            margin: "0 auto",
+          }}
+        >
+          {DATA.experience.map(
+            (exp, i) => (
+              <div
+                key={i}
+                className="experience-row"
+                style={{
+                  display: "flex",
+                  gap: "1.2rem",
+                }}
+              >
+                <div
+                  style={{
+                    display:
+                      "flex",
+                    flexDirection:
+                      "column",
+                    alignItems:
+                      "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 13,
+                      height: 13,
+                      borderRadius:
+                        "50%",
+                      background:
+                        t.acc,
+                      boxShadow:
+                        "0 0 15px rgba(0,212,255,.6)",
+                      flexShrink: 0,
+                      marginTop: 7,
+                    }}
+                  />
+
+                  <div
+                    style={{
+                      flex: 1,
+                      width: 2,
+                      background:
+                        "linear-gradient(to bottom," +
+                        t.acc +
+                        "," +
+                        t.bdr +
+                        ")",
+                      margin:
+                        "4px 0",
+                    }}
+                  />
                 </div>
-                <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                  {exp.points.map((pt, j) => (
-                    <li key={j} style={{ display: "flex", gap: "0.55rem", fontSize: "0.88rem", color: t.txt2, lineHeight: 1.68 }}>
-                      <span style={{ color: t.acc, flexShrink: 0, fontSize: "0.82rem", marginTop: "0.05rem" }}>{"→"}</span>
-                      {pt}
-                    </li>
-                  ))}
-                </ul>
+
+                <div
+                  className="experience-card"
+                  style={{
+                    flex: 1,
+                    background:
+                      t.sur,
+                    border:
+                      "1px solid " +
+                      t.bdr,
+                    borderRadius: 18,
+                    padding:
+                      "1.65rem 1.8rem",
+                    marginBottom:
+                      "2rem",
+                    transition:
+                      "border-color .3s, transform .3s",
+                  }}
+                  onMouseEnter={(
+                    e
+                  ) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(0,212,255,.3)";
+                    e.currentTarget.style.transform =
+                      "translateX(5px)";
+                  }}
+                  onMouseLeave={(
+                    e
+                  ) => {
+                    e.currentTarget.style.borderColor =
+                      t.bdr;
+                    e.currentTarget.style.transform =
+                      "none";
+                  }}
+                >
+                  <div
+                    style={{
+                      display:
+                        "flex",
+                      justifyContent:
+                        "space-between",
+                      alignItems:
+                        "flex-start",
+                      marginBottom:
+                        "1.1rem",
+                      gap: "1rem",
+                      flexWrap:
+                        "wrap",
+                    }}
+                  >
+                    <div>
+                      <div
+                        style={{
+                          fontFamily:
+                            "'Syne', sans-serif",
+                          fontSize:
+                            "1.18rem",
+                          fontWeight:
+                            700,
+                          color:
+                            t.txt,
+                          marginBottom:
+                            ".25rem",
+                        }}
+                      >
+                        {exp.role}
+                      </div>
+
+                      <div
+                        style={{
+                          fontSize:
+                            ".85rem",
+                          color:
+                            t.acc,
+                          fontWeight:
+                            600,
+                        }}
+                      >
+                        {exp.company}
+                      </div>
+                    </div>
+
+                    <span
+                      style={{
+                        fontSize:
+                          ".72rem",
+                        color:
+                          "#22c55e",
+                        background:
+                          "rgba(34,197,94,.07)",
+                        border:
+                          "1px solid rgba(34,197,94,.16)",
+                        padding:
+                          ".32rem .7rem",
+                        borderRadius:
+                          50,
+                        display:
+                          "flex",
+                        alignItems:
+                          "center",
+                        gap: ".35rem",
+                        fontWeight:
+                          600,
+                        whiteSpace:
+                          "nowrap",
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius:
+                            "50%",
+                          background:
+                            "#22c55e",
+                          animation:
+                            "pulseDot 2s infinite",
+                        }}
+                      />
+
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  <ul
+                    style={{
+                      display:
+                        "flex",
+                      flexDirection:
+                        "column",
+                      gap: ".58rem",
+                    }}
+                  >
+                    {exp.points.map(
+                      (pt, j) => (
+                        <li
+                          key={j}
+                          style={{
+                            display:
+                              "flex",
+                            gap: ".55rem",
+                            fontSize:
+                              ".85rem",
+                            color:
+                              t.txt2,
+                            lineHeight:
+                              1.7,
+                          }}
+                        >
+                          <span
+                            style={{
+                              color:
+                                t.acc,
+                              flexShrink:
+                                0,
+                            }}
+                          >
+                            →
+                          </span>
+
+                          {pt}
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </section>
   );
 }
+
+/* =========================================================
+   EDUCATION
+========================================================= */
 
 function Education({ dark }) {
   const t = T(dark);
-  const [ref, vis] = useReveal();
+  const [ref, vis] =
+    useReveal();
+
   return (
-    <section id="education" style={sec(t.bg2)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="05 / Education" title="Academic Background" t={t} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem" }}>
+    <section
+      id="education"
+      style={sec(t.bg2)}
+    >
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="05 / Education"
+          title="Academic Background"
+          t={t}
+        />
+
+        <div
+          className="education-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "1fr 1fr",
+            gap: "2.2rem",
+          }}
+        >
           <div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt, marginBottom: "1.35rem", paddingBottom: "0.65rem", borderBottom: "1px solid " + t.bdr }}>Education</h3>
-            {DATA.education.map((edu, i) => (
-              <div key={i} style={{ display: "flex", gap: "0.9rem", background: t.sur, border: "1px solid " + t.bdr, borderRadius: 14, padding: "1.4rem", transition: "border-color 0.3s" }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; }}>
-                <div style={{ fontSize: "1.85rem", flexShrink: 0 }}>🎓</div>
-                <div>
-                  <h4 style={{ fontSize: "0.97rem", fontWeight: 600, color: t.txt, marginBottom: "0.22rem" }}>{edu.degree}</h4>
-                  <p style={{ fontSize: "0.85rem", color: t.txt2, marginBottom: "0.38rem" }}>{edu.institution}</p>
-                  <span style={{ fontSize: "0.75rem", color: t.acc, fontWeight: 600, background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)", padding: "0.18rem 0.55rem", borderRadius: 50 }}>{edu.year}</span>
+            <h3
+              style={{
+                fontFamily:
+                  "'Syne', sans-serif",
+                fontSize:
+                  "1.02rem",
+                fontWeight:
+                  700,
+                color: t.txt,
+                marginBottom:
+                  "1.1rem",
+              }}
+            >
+              Education
+            </h3>
+
+            {DATA.education.map(
+              (edu, i) => (
+                <div
+                  key={i}
+                  style={{
+                    display:
+                      "flex",
+                    gap: ".9rem",
+                    background:
+                      t.sur,
+                    border:
+                      "1px solid " +
+                      t.bdr,
+                    borderRadius:
+                      16,
+                    padding:
+                      "1.4rem",
+                    transition:
+                      "all .3s",
+                  }}
+                  onMouseEnter={(
+                    e
+                  ) => {
+                    e.currentTarget.style.borderColor =
+                      "rgba(0,212,255,.3)";
+                    e.currentTarget.style.transform =
+                      "translateY(-4px)";
+                  }}
+                  onMouseLeave={(
+                    e
+                  ) => {
+                    e.currentTarget.style.borderColor =
+                      t.bdr;
+                    e.currentTarget.style.transform =
+                      "none";
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize:
+                        "1.7rem",
+                      flexShrink: 0,
+                    }}
+                  >
+                    🎓
+                  </div>
+
+                  <div>
+                    <h4
+                      style={{
+                        fontSize:
+                          ".95rem",
+                        fontWeight:
+                          700,
+                        color:
+                          t.txt,
+                        marginBottom:
+                          ".25rem",
+                      }}
+                    >
+                      {edu.degree}
+                    </h4>
+
+                    <p
+                      style={{
+                        fontSize:
+                          ".82rem",
+                        color:
+                          t.txt2,
+                        marginBottom:
+                          ".45rem",
+                        lineHeight:
+                          1.5,
+                      }}
+                    >
+                      {edu.institution}
+                    </p>
+
+                    <span
+                      style={{
+                        fontSize:
+                          ".7rem",
+                        color:
+                          t.acc,
+                        fontWeight:
+                          700,
+                        background:
+                          "rgba(0,212,255,.07)",
+                        border:
+                          "1px solid rgba(0,212,255,.16)",
+                        padding:
+                          ".18rem .55rem",
+                        borderRadius:
+                          50,
+                      }}
+                    >
+                      {edu.year}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
 
           <div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.05rem", fontWeight: 700, color: t.txt, marginBottom: "1.35rem", paddingBottom: "0.65rem", borderBottom: "1px solid " + t.bdr }}>Certifications</h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
-              {DATA.certifications.map((cert, i) => (
-                <a key={i} href={cert.link} target="_blank" rel="noreferrer"
-                  style={{ display: "flex", gap: "0.85rem", alignItems: "center", background: t.sur, border: "1px solid " + t.bdr,
-                      borderRadius: 12, padding: "0.92rem 1.15rem", transition: "border-color 0.3s, transform 0.2s",
-                      textDecoration: "none", color: "inherit", cursor: "pointer" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.32)"; e.currentTarget.style.transform = "translateX(4px)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.transform = "none"; }}>
-                  <span style={{ fontSize: "1.25rem", flexShrink: 0 }}>🏆</span>
-                  <div style={{ flex: 1 }}>
-                    <strong style={{ display: "block", fontSize: "0.87rem", color: t.txt, marginBottom: "0.12rem", fontWeight: 600 }}>{cert.title}</strong>
-                    <p style={{ fontSize: "0.8rem", color: t.txt2 }}>{cert.issuer}</p>
-                  </div>
-                  <span style={{ fontSize: "0.72rem", color: t.acc, fontWeight: 600, display: "flex", alignItems: "center", gap: "0.22rem", whiteSpace: "nowrap" }}>
-                    View ↗
-                  </span>
-                </a>
-              ))}
+            <h3
+              style={{
+                fontFamily:
+                  "'Syne', sans-serif",
+                fontSize:
+                  "1.02rem",
+                fontWeight:
+                  700,
+                color: t.txt,
+                marginBottom:
+                  "1.1rem",
+              }}
+            >
+              Certifications
+            </h3>
+
+            <div
+              style={{
+                display:
+                  "flex",
+                flexDirection:
+                  "column",
+                gap: ".7rem",
+              }}
+            >
+              {DATA.certifications.map(
+                (cert, i) => (
+                  <a
+                    key={i}
+                    href={cert.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display:
+                        "flex",
+                      gap: ".8rem",
+                      alignItems:
+                        "center",
+                      background:
+                        t.sur,
+                      border:
+                        "1px solid " +
+                        t.bdr,
+                      borderRadius:
+                        13,
+                      padding:
+                        ".9rem 1rem",
+                      transition:
+                        "all .25s",
+                    }}
+                    onMouseEnter={(
+                      e
+                    ) => {
+                      e.currentTarget.style.borderColor =
+                        "rgba(0,212,255,.3)";
+                      e.currentTarget.style.transform =
+                        "translateX(5px)";
+                    }}
+                    onMouseLeave={(
+                      e
+                    ) => {
+                      e.currentTarget.style.borderColor =
+                        t.bdr;
+                      e.currentTarget.style.transform =
+                        "none";
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize:
+                          "1.15rem",
+                      }}
+                    >
+                      🏆
+                    </span>
+
+                    <div
+                      style={{
+                        flex: 1,
+                      }}
+                    >
+                      <strong
+                        style={{
+                          display:
+                            "block",
+                          fontSize:
+                            ".84rem",
+                          color:
+                            t.txt,
+                          marginBottom:
+                            ".12rem",
+                        }}
+                      >
+                        {cert.title}
+                      </strong>
+
+                      <p
+                        style={{
+                          fontSize:
+                            ".76rem",
+                          color:
+                            t.txt2,
+                        }}
+                      >
+                        {cert.issuer}
+                      </p>
+                    </div>
+
+                    <span
+                      style={{
+                        fontSize:
+                          ".7rem",
+                        color:
+                          t.acc,
+                        fontWeight:
+                          700,
+                      }}
+                    >
+                      View ↗
+                    </span>
+                  </a>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -903,116 +4333,649 @@ function Education({ dark }) {
   );
 }
 
+/* =========================================================
+   CONTACT
+========================================================= */
+
 function Contact({ dark }) {
   const t = T(dark);
-  const [ref, vis] = useReveal();
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState(null);
+  const [ref, vis] =
+    useReveal();
+
+  const [form, setForm] =
+    useState({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+  const [errors, setErrors] =
+    useState({});
+
+  const [status, setStatus] =
+    useState(null);
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim()) e.name = "Name is required";
-    if (!form.email.trim()) e.email = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "Invalid email address";
-    if (form.message.trim().length < 20) e.message = "Message must be at least 20 characters";
+
+    if (!form.name.trim()) {
+      e.name = "Name is required";
+    }
+
+    if (!form.email.trim()) {
+      e.email = "Email is required";
+    } else if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        form.email
+      )
+    ) {
+      e.email =
+        "Invalid email address";
+    }
+
+    if (
+      form.message.trim().length <
+      20
+    ) {
+      e.message =
+        "Message must be at least 20 characters";
+    }
+
     return e;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
+
     setStatus("sending");
-    setTimeout(() => { setStatus("success"); setForm({ name: "", email: "", subject: "", message: "" }); }, 1400);
+
+    setTimeout(() => {
+      setStatus("success");
+
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    }, 1400);
   };
 
   const inputSt = (hasErr) => ({
-    background: t.bg, border: "1px solid " + (hasErr ? "#ef4444" : t.bdr),
-    borderRadius: 8, padding: "0.7rem 0.95rem",
-    fontFamily: "'DM Sans', sans-serif", fontSize: "0.88rem",
-    color: t.txt, outline: "none", width: "100%", transition: "border-color 0.2s, box-shadow 0.2s",
+    background: t.bg,
+    border:
+      "1px solid " +
+      (hasErr
+        ? "#ef4444"
+        : t.bdr),
+    borderRadius: 9,
+    padding: ".72rem .9rem",
+    fontFamily:
+      "'DM Sans', sans-serif",
+    fontSize: ".86rem",
+    color: t.txt,
+    outline: "none",
+    width: "100%",
+    transition:
+      "border-color .2s, box-shadow .2s",
   });
 
   const contacts = [
-    { icon: "✉", label: "Email", value: DATA.personal.email, href: "mailto:" + DATA.personal.email },
-    { icon: "📞", label: "Phone", value: DATA.personal.phone, href: "tel:" + DATA.personal.phone },
-    { icon: "🔗", label: "LinkedIn", value: "Connect with me", href: DATA.personal.linkedin },
-    { icon: "🐙", label: "GitHub", value: "View my repositories", href: DATA.personal.github },
+    {
+      icon: "✉",
+      label: "Email",
+      value: DATA.personal.email,
+      href:
+        "mailto:" +
+        DATA.personal.email,
+    },
+    {
+      icon: "📞",
+      label: "Phone",
+      value: DATA.personal.phone,
+      href:
+        "tel:" +
+        DATA.personal.phone,
+    },
+    {
+      icon: "🔗",
+      label: "LinkedIn",
+      value: "Connect with me",
+      href: DATA.personal.linkedin,
+    },
+    {
+      icon: "🐙",
+      label: "GitHub",
+      value: "View my repositories",
+      href: DATA.personal.github,
+    },
   ];
 
   return (
-    <section id="contact" style={sec(t.bg)}>
-      <div style={{ ...ctr(), ...revealStyle(vis) }} ref={ref}>
-        <SecHdr tag="06 / Contact" title="Let's Work Together" sub="Open to full-time roles, freelance projects, and collaborations." t={t} />
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.55fr", gap: "clamp(2rem,6vw,4rem)", alignItems: "start" }}>
+    <section
+      id="contact"
+      style={sec(t.bg)}
+    >
+      <div
+        className="section-container"
+        style={{
+          ...ctr(),
+          ...revealStyle(vis),
+        }}
+        ref={ref}
+      >
+        <SecHdr
+          tag="06 / Contact"
+          title="Let's Work Together"
+          sub="Open to full-time roles, freelance projects, and collaborations."
+          t={t}
+        />
+
+        <div
+          className="contact-grid"
+          style={{
+            display: "grid",
+            gridTemplateColumns:
+              "1fr 1.55fr",
+            gap: "clamp(2rem,6vw,4.5rem)",
+            alignItems:
+              "start",
+          }}
+        >
           <div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.2rem", fontWeight: 700, marginBottom: "1.35rem", color: t.txt }}>Reach Out Directly</h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-              {contacts.map(({ icon, label, value, href }) => (
-                <a key={label} href={href} target={label === "LinkedIn" || label === "GitHub" ? "_blank" : undefined} rel="noreferrer"
-                  style={{ display: "flex", gap: "0.9rem", alignItems: "center", background: t.sur, border: "1px solid " + t.bdr,
-                      borderRadius: 12, padding: "0.9rem 1.1rem", transition: "all 0.25s", color: t.txt, textDecoration: "none" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,212,255,0.3)"; e.currentTarget.style.transform = "translateX(4px)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = t.bdr; e.currentTarget.style.transform = "none"; }}>
-                  <span style={{ fontSize: "1.2rem", width: 40, height: 40, display: "flex", alignItems: "center",
-                      justifyContent: "center", background: "rgba(0,212,255,0.08)", borderRadius: 10, flexShrink: 0 }}>{icon}</span>
-                  <div>
-                    <strong style={{ display: "block", fontSize: "0.83rem", fontWeight: 600, marginBottom: "0.12rem" }}>{label}</strong>
-                    <p style={{ fontSize: "0.8rem", color: t.txt2 }}>{value}</p>
-                  </div>
-                </a>
-              ))}
+            <h3
+              style={{
+                fontFamily:
+                  "'Syne', sans-serif",
+                fontSize:
+                  "1.15rem",
+                fontWeight:
+                  700,
+                marginBottom:
+                  "1.2rem",
+                color: t.txt,
+              }}
+            >
+              Reach Out Directly
+            </h3>
+
+            <div
+              style={{
+                display:
+                  "flex",
+                flexDirection:
+                  "column",
+                gap: ".7rem",
+              }}
+            >
+              {contacts.map(
+                ({
+                  icon,
+                  label,
+                  value,
+                  href,
+                }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={
+                      label ===
+                        "LinkedIn" ||
+                      label === "GitHub"
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel="noreferrer"
+                    style={{
+                      display:
+                        "flex",
+                      gap: ".8rem",
+                      alignItems:
+                        "center",
+                      background:
+                        t.sur,
+                      border:
+                        "1px solid " +
+                        t.bdr,
+                      borderRadius:
+                        13,
+                      padding:
+                        ".85rem 1rem",
+                      transition:
+                        "all .25s",
+                    }}
+                    onMouseEnter={(
+                      e
+                    ) => {
+                      e.currentTarget.style.borderColor =
+                        "rgba(0,212,255,.3)";
+                      e.currentTarget.style.transform =
+                        "translateX(5px)";
+                    }}
+                    onMouseLeave={(
+                      e
+                    ) => {
+                      e.currentTarget.style.borderColor =
+                        t.bdr;
+                      e.currentTarget.style.transform =
+                        "none";
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontSize:
+                          "1.05rem",
+                        width: 38,
+                        height: 38,
+                        display:
+                          "flex",
+                        alignItems:
+                          "center",
+                        justifyContent:
+                          "center",
+                        background:
+                          "rgba(0,212,255,.07)",
+                        borderRadius:
+                          9,
+                      }}
+                    >
+                      {icon}
+                    </span>
+
+                    <div>
+                      <strong
+                        style={{
+                          display:
+                            "block",
+                          fontSize:
+                            ".8rem",
+                          fontWeight:
+                            700,
+                          marginBottom:
+                            ".1rem",
+                          color:
+                            t.txt,
+                        }}
+                      >
+                        {label}
+                      </strong>
+
+                      <p
+                        style={{
+                          fontSize:
+                            ".76rem",
+                          color:
+                            t.txt2,
+                        }}
+                      >
+                        {value}
+                      </p>
+                    </div>
+                  </a>
+                )
+              )}
             </div>
           </div>
-          <form onSubmit={handleSubmit} noValidate
-            style={{ display: "flex", flexDirection: "column", gap: "1.15rem", background: t.sur,
-                border: "1px solid " + t.bdr, borderRadius: 20, padding: "2rem", backdropFilter: "blur(8px)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.9rem" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
-                <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Name *</label>
-                <input style={inputSt(errors.name)} placeholder="Your full name" value={form.name}
-                  onChange={(e) => { setForm((f) => ({ ...f, name: e.target.value })); setErrors((er) => ({ ...er, name: "" })); }}
-                  onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = errors.name ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
-                {errors.name && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.name}</span>}
+
+          <form
+            className="contact-form"
+            onSubmit={
+              handleSubmit
+            }
+            noValidate
+            style={{
+              display:
+                "flex",
+              flexDirection:
+                "column",
+              gap: "1rem",
+              background:
+                t.sur,
+              border:
+                "1px solid " +
+                t.bdr,
+              borderRadius:
+                20,
+              padding:
+                "1.8rem",
+              backdropFilter:
+                "blur(12px)",
+            }}
+          >
+            <div
+              className="contact-form-grid"
+              style={{
+                display:
+                  "grid",
+                gridTemplateColumns:
+                  "1fr 1fr",
+                gap: ".85rem",
+              }}
+            >
+              <div
+                style={{
+                  display:
+                    "flex",
+                  flexDirection:
+                    "column",
+                  gap: ".35rem",
+                }}
+              >
+                <label
+                  style={{
+                    fontSize:
+                      ".78rem",
+                    fontWeight:
+                      600,
+                    color:
+                      t.txt2,
+                  }}
+                >
+                  Name *
+                </label>
+
+                <input
+                  style={inputSt(
+                    errors.name
+                  )}
+                  placeholder="Your full name"
+                  value={
+                    form.name
+                  }
+                  onChange={(e) => {
+                    setForm(
+                      (f) => ({
+                        ...f,
+                        name:
+                          e.target
+                            .value,
+                      })
+                    );
+
+                    setErrors(
+                      (er) => ({
+                        ...er,
+                        name: "",
+                      })
+                    );
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor =
+                      t.acc;
+                    e.target.style.boxShadow =
+                      "0 0 0 3px rgba(0,212,255,.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor =
+                      errors.name
+                        ? "#ef4444"
+                        : t.bdr;
+                    e.target.style.boxShadow =
+                      "none";
+                  }}
+                />
+
+                {errors.name && (
+                  <span
+                    style={{
+                      fontSize:
+                        ".72rem",
+                      color:
+                        "#ef4444",
+                    }}
+                  >
+                    {errors.name}
+                  </span>
+                )}
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
-                <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Email *</label>
-                <input type="email" style={inputSt(errors.email)} placeholder="your@email.com" value={form.email}
-                  onChange={(e) => { setForm((f) => ({ ...f, email: e.target.value })); setErrors((er) => ({ ...er, email: "" })); }}
-                  onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
-                  onBlur={(e) => { e.target.style.borderColor = errors.email ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
-                {errors.email && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.email}</span>}
+
+              <div
+                style={{
+                  display:
+                    "flex",
+                  flexDirection:
+                    "column",
+                  gap: ".35rem",
+                }}
+              >
+                <label
+                  style={{
+                    fontSize:
+                      ".78rem",
+                    fontWeight:
+                      600,
+                    color:
+                      t.txt2,
+                  }}
+                >
+                  Email *
+                </label>
+
+                <input
+                  type="email"
+                  style={inputSt(
+                    errors.email
+                  )}
+                  placeholder="your@email.com"
+                  value={
+                    form.email
+                  }
+                  onChange={(e) => {
+                    setForm(
+                      (f) => ({
+                        ...f,
+                        email:
+                          e.target
+                            .value,
+                      })
+                    );
+
+                    setErrors(
+                      (er) => ({
+                        ...er,
+                        email: "",
+                      })
+                    );
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor =
+                      t.acc;
+                    e.target.style.boxShadow =
+                      "0 0 0 3px rgba(0,212,255,.1)";
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor =
+                      errors.email
+                        ? "#ef4444"
+                        : t.bdr;
+                    e.target.style.boxShadow =
+                      "none";
+                  }}
+                />
+
+                {errors.email && (
+                  <span
+                    style={{
+                      fontSize:
+                        ".72rem",
+                      color:
+                        "#ef4444",
+                    }}
+                  >
+                    {errors.email}
+                  </span>
+                )}
               </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
-              <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Subject</label>
-              <input style={inputSt(false)} placeholder="What's this about?" value={form.subject}
-                onChange={(e) => setForm((f) => ({ ...f, subject: e.target.value }))}
-                onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
-                onBlur={(e) => { e.target.style.borderColor = t.bdr; e.target.style.boxShadow = "none"; }} />
+
+            <div
+              style={{
+                display:
+                  "flex",
+                flexDirection:
+                  "column",
+                gap: ".35rem",
+              }}
+            >
+              <label
+                style={{
+                  fontSize:
+                    ".78rem",
+                  fontWeight:
+                    600,
+                  color:
+                    t.txt2,
+                }}
+              >
+                Subject
+              </label>
+
+              <input
+                style={inputSt(
+                  false
+                )}
+                placeholder="What's this about?"
+                value={
+                  form.subject
+                }
+                onChange={(e) =>
+                  setForm(
+                    (f) => ({
+                      ...f,
+                      subject:
+                        e.target
+                          .value,
+                    })
+                  )
+                }
+              />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.38rem" }}>
-              <label style={{ fontSize: "0.8rem", fontWeight: 600, color: t.txt2 }}>Message *</label>
-              <textarea rows={5} style={{ ...inputSt(errors.message), resize: "vertical" }}
-                placeholder="Tell me about your project or opportunity..." value={form.message}
-                onChange={(e) => { setForm((f) => ({ ...f, message: e.target.value })); setErrors((er) => ({ ...er, message: "" })); }}
-                onFocus={(e) => { e.target.style.borderColor = t.acc; e.target.style.boxShadow = "0 0 0 3px rgba(0,212,255,0.1)"; }}
-                onBlur={(e) => { e.target.style.borderColor = errors.message ? "#ef4444" : t.bdr; e.target.style.boxShadow = "none"; }} />
-              {errors.message && <span style={{ fontSize: "0.75rem", color: "#ef4444" }}>{errors.message}</span>}
+
+            <div
+              style={{
+                display:
+                  "flex",
+                flexDirection:
+                  "column",
+                gap: ".35rem",
+              }}
+            >
+              <label
+                style={{
+                  fontSize:
+                    ".78rem",
+                  fontWeight:
+                    600,
+                  color:
+                    t.txt2,
+                }}
+              >
+                Message *
+              </label>
+
+              <textarea
+                rows={5}
+                style={{
+                  ...inputSt(
+                    errors.message
+                  ),
+                  resize:
+                    "vertical",
+                }}
+                placeholder="Tell me about your project or opportunity..."
+                value={
+                  form.message
+                }
+                onChange={(e) => {
+                  setForm(
+                    (f) => ({
+                      ...f,
+                      message:
+                        e.target
+                          .value,
+                    })
+                  );
+
+                  setErrors(
+                    (er) => ({
+                      ...er,
+                      message:
+                        "",
+                    })
+                  );
+                }}
+              />
+
+              {errors.message && (
+                <span
+                  style={{
+                    fontSize:
+                      ".72rem",
+                    color:
+                      "#ef4444",
+                  }}
+                >
+                  {errors.message}
+                </span>
+              )}
             </div>
-            {status === "success" && (
-              <div style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 8, padding: "0.72rem 0.95rem", fontSize: "0.88rem", color: "#22c55e" }}>
-                ✅ Message sent! I will get back to you soon.
+
+            {status ===
+              "success" && (
+              <div
+                style={{
+                  background:
+                    "rgba(34,197,94,.08)",
+                  border:
+                    "1px solid rgba(34,197,94,.25)",
+                  borderRadius: 9,
+                  padding:
+                    ".7rem .9rem",
+                  fontSize:
+                    ".82rem",
+                  color:
+                    "#22c55e",
+                }}
+              >
+                ✅ Message sent!
+                I will get back
+                to you soon.
               </div>
             )}
-            <button type="submit" disabled={status === "sending"}
-              style={{ ...btnP(t), justifyContent: "center", padding: "0.82rem", width: "100%",
-                  opacity: status === "sending" ? 0.6 : 1, cursor: status === "sending" ? "not-allowed" : "pointer" }}
-              onMouseEnter={(e) => { if (status !== "sending") { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 28px rgba(0,212,255,0.35)"; } }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
-              {status === "sending" ? "Sending..." : "Send Message →"}
+
+            <button
+              type="submit"
+              disabled={
+                status ===
+                "sending"
+              }
+              style={{
+                ...btnP(t),
+                width: "100%",
+                opacity:
+                  status ===
+                  "sending"
+                    ? 0.6
+                    : 1,
+                cursor:
+                  status ===
+                  "sending"
+                    ? "not-allowed"
+                    : "pointer",
+              }}
+            >
+              {status ===
+              "sending"
+                ? "Sending..."
+                : "Send Message →"}
             </button>
           </form>
         </div>
@@ -1021,25 +4984,148 @@ function Contact({ dark }) {
   );
 }
 
+/* =========================================================
+   FOOTER
+========================================================= */
+
 function Footer({ dark }) {
   const t = T(dark);
+
   return (
-    <footer style={{ background: t.bg2, borderTop: "1px solid " + t.bdr, padding: "2.4rem 0", transition: "background 0.4s" }}>
+    <footer
+      style={{
+        background: t.bg2,
+        borderTop:
+          "1px solid " +
+          t.bdr,
+        padding:
+          "2.3rem 0",
+      }}
+    >
       <div style={ctr()}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.3rem", flexWrap: "wrap", gap: "1rem" }}>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "1.28rem", fontWeight: 800, color: t.txt }}>
-            <span style={{ color: t.acc, fontSize: "1.48rem" }}>V</span>ignesh<span style={{ color: t.acc }}>.</span>
+        <div
+          style={{
+            display:
+              "flex",
+            justifyContent:
+              "space-between",
+            alignItems:
+              "center",
+            marginBottom:
+              "1.25rem",
+            flexWrap:
+              "wrap",
+            gap: "1rem",
+          }}
+        >
+          <div
+            style={{
+              fontFamily:
+                "'Syne', sans-serif",
+              fontSize:
+                "1.25rem",
+              fontWeight:
+                800,
+              color: t.txt,
+            }}
+          >
+            <span
+              style={{
+                color: t.acc,
+                fontSize:
+                  "1.45rem",
+              }}
+            >
+              V
+            </span>
+            ignesh
+            <span
+              style={{
+                color: t.acc,
+              }}
+            >
+              .
+            </span>
           </div>
-          <p style={{ fontSize: "0.88rem", color: t.txt2 }}>Building the web, one component at a time. 🚀</p>
+
+          <p
+            style={{
+              fontSize:
+                ".82rem",
+              color:
+                t.txt2,
+            }}
+          >
+            Building the web,
+            one component at
+            a time. 🚀
+          </p>
         </div>
-        <div style={{ height: 1, background: t.bdr, marginBottom: "1.3rem" }} />
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem" }}>
-          <p style={{ fontSize: "0.83rem", color: t.txt3 }}>{"© " + new Date().getFullYear() + " Vignesh Goud — Crafted with ❤️ using React.js"}</p>
-          <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            style={{ fontSize: "0.82rem", fontWeight: 600, color: t.acc, border: "1px solid rgba(0,212,255,0.3)",
-                padding: "0.38rem 0.88rem", borderRadius: 6, transition: "all 0.2s", background: "none", cursor: "pointer", fontFamily: "'DM Sans', sans-serif" }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = t.acc; e.currentTarget.style.color = "#000"; }}
-            onMouseLeave={(e) => { e.currentTarget.style.background = "none"; e.currentTarget.style.color = t.acc; }}>
+
+        <div
+          style={{
+            height: 1,
+            background:
+              t.bdr,
+            marginBottom:
+              "1.25rem",
+          }}
+        />
+
+        <div
+          style={{
+            display:
+              "flex",
+            justifyContent:
+              "space-between",
+            alignItems:
+              "center",
+            flexWrap:
+              "wrap",
+            gap: "1rem",
+          }}
+        >
+          <p
+            style={{
+              fontSize:
+                ".76rem",
+              color:
+                t.txt3,
+            }}
+          >
+            ©{" "}
+            {new Date().getFullYear()}{" "}
+            Vignesh Goud —
+            Crafted with ❤️
+            using React.js
+          </p>
+
+          <button
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior:
+                  "smooth",
+              })
+            }
+            style={{
+              fontSize:
+                ".76rem",
+              fontWeight:
+                700,
+              color:
+                t.acc,
+              border:
+                "1px solid rgba(0,212,255,.3)",
+              padding:
+                ".38rem .8rem",
+              borderRadius: 7,
+              background:
+                "transparent",
+              cursor:
+                "pointer",
+            }}
+          >
             ↑ Back to Top
           </button>
         </div>
@@ -1048,25 +5134,72 @@ function Footer({ dark }) {
   );
 }
 
+/* =========================================================
+   MAIN COMPONENT
+========================================================= */
+
 export default function Port() {
-  const [dark, setDark] = useState(true);
+  const [dark, setDark] =
+    useState(true);
+
   const t = T(dark);
+
   const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    const el =
+      document.getElementById(id);
+
+    if (el) {
+      el.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
   };
+
   return (
     <>
-      <style>{GLOBAL_CSS}</style>
-      <div style={{ fontFamily: "'DM Sans', sans-serif", background: t.bg, color: t.txt, transition: "background 0.4s, color 0.4s" }}>
-        <Navbar dark={dark} toggleTheme={() => setDark((d) => !d)} scrollTo={scrollTo} />
-        <Hero dark={dark} scrollTo={scrollTo} />
-        <About dark={dark} scrollTo={scrollTo} />
+      <style>
+        {GLOBAL_CSS}
+      </style>
+
+      <div
+        style={{
+          fontFamily:
+            "'DM Sans', sans-serif",
+          background: t.bg,
+          color: t.txt,
+          minHeight: "100vh",
+          transition:
+            "background .4s, color .4s",
+        }}
+      >
+        <Navbar
+          dark={dark}
+          toggleTheme={() =>
+            setDark((d) => !d)
+          }
+          scrollTo={scrollTo}
+        />
+
+        <Hero
+          dark={dark}
+          scrollTo={scrollTo}
+        />
+
+        <About
+          dark={dark}
+          scrollTo={scrollTo}
+        />
+
         <Skills dark={dark} />
+
         <Projects dark={dark} />
+
         <Experience dark={dark} />
+
         <Education dark={dark} />
+
         <Contact dark={dark} />
+
         <Footer dark={dark} />
       </div>
     </>
