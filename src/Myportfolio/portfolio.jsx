@@ -1144,7 +1144,7 @@ import weather from "../assets/weather.jpeg";
 import canara_bank from "../assets/canara bank.jpeg";
 
 const RESUME_URL =
-  "https://drive.google.com/file/d/1Evjd5y8lHsTtwetUwq4baPS9_mSzPxIT/view?usp=sharing";
+  "https://drive.google.com/file/d/1j6Y3uurJY6RP1YpnWvImwlK-cITPJUhS/view?usp=sharing";
 
 const DATA = {
   personal: {
